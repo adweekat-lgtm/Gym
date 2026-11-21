@@ -53,10 +53,36 @@ h3{font-size:18px;margin:18px 0 8px}
 .day{background:var(--p1);border-radius:18px;padding:12px;text-align:start;border:2px solid transparent;min-height:104px;display:flex;flex-direction:column;gap:2px}
 .day.next{border-color:var(--acc)}.day b{font-size:18px}.day .n{color:var(--acc);font-weight:800;font-size:13px}
 .stat{background:var(--p2);border-radius:16px;padding:10px 12px}.stat b{display:block;font-size:22px;line-height:1.2}.stat span{font-size:13px;color:var(--mute)}
-.tabs{position:fixed;inset-inline:0;bottom:0;background:#12141b;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);padding-bottom:env(safe-area-inset-bottom);z-index:5}
-.tabs button{min-height:62px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:12px;font-weight:700;color:var(--mute)}
+.tabs{position:fixed;inset-inline:0;bottom:0;background:#12141b;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(6,1fr);padding-bottom:env(safe-area-inset-bottom);z-index:5}
+.tabs button{min-height:62px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:11px;white-space:nowrap;font-weight:700;color:var(--mute)}
 .tabs button svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2}
 .tabs button[aria-current=page]{color:var(--acc)}
+.hbtns{display:flex;gap:8px}#coachBtn.on{color:var(--acc)}
+.tipc{display:flex;gap:12px;align-items:flex-start;border:1px solid #4a3418;background:linear-gradient(135deg,#231a10,var(--p1))}
+.tipi{flex:none;width:40px;height:40px;border-radius:12px;background:#3a2612;display:grid;place-items:center;color:var(--acc)}
+.tipi svg,.pi svg,.eq svg,#player button svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+svg .fl{fill:currentColor}
+.tiph{display:flex;gap:12px;align-items:center}.tipx{font-size:18px;font-weight:700;line-height:1.6;margin:16px 0}
+.meal-s .mi{list-style:none;margin:10px 0 6px;padding:0}.meal-s .mi li{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px solid var(--line)}
+.meal-s .mi b{color:var(--acc);white-space:nowrap}
+.hs{display:flex;gap:8px;overflow-x:auto;padding:12px 0 4px;scrollbar-width:none}.hs::-webkit-scrollbar{display:none}.hs .chip{min-height:38px;flex:none}
+.chip.acc{background:var(--acc);color:#16100a}
+.trks{display:flex;flex-direction:column;gap:8px;margin:10px 0}
+.trk{display:flex;align-items:center;gap:12px;width:100%;text-align:start;background:var(--p1);border:1px solid var(--line);border-radius:14px;padding:8px 10px;min-height:60px}
+.trk img,.trk .pi{flex:none;width:44px;height:44px;border-radius:10px;object-fit:cover;background:var(--p2);display:grid;place-items:center;color:var(--mute)}
+.trk .tt{flex:1;display:flex;flex-direction:column;min-width:0}.trk .tt b{font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.trk .tt small{font-size:12px;color:var(--mute);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.trk .eq{color:var(--mute)}.trk.on{border-color:var(--acc);background:#251a10}.trk.on .eq{color:var(--acc)}
+.qg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.trk.sq{min-height:52px}
+.qn{flex:none;width:34px;height:34px;border-radius:10px;background:var(--p2);display:grid;place-items:center;font-weight:800;font-size:13px;color:var(--acc)}
+.shows{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:10px 0}
+.show{display:flex;flex-direction:column;text-align:start;background:var(--p1);border:1px solid var(--line);border-radius:14px;padding:8px;gap:2px}
+.show img{width:100%;aspect-ratio:1;border-radius:10px;object-fit:cover;margin-bottom:6px}.show b{font-size:14px;line-height:1.3}.show small{font-size:12px;color:var(--mute)}
+#player{position:fixed;inset-inline:8px;bottom:calc(70px + env(safe-area-inset-bottom));z-index:15;max-width:544px;margin:0 auto;display:flex;align-items:center;gap:6px;background:#1e2129;border:1px solid var(--line);border-radius:16px;padding:6px 6px 6px 10px;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+#player img,#player .pi{flex:none;width:40px;height:40px;border-radius:10px;object-fit:cover;background:var(--p2);display:grid;place-items:center;color:var(--acc)}
+#player .pt{flex:1;display:flex;flex-direction:column;min-width:0;line-height:1.3}#player .pt b{font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}#player .pt small{font-size:11px;color:var(--mute);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#player button{flex:none;width:38px;height:40px;border-radius:10px;display:grid;place-items:center;color:var(--ink)}#player button.pp{background:var(--acc);color:#16100a}
+body.sess #player{bottom:calc(10px + env(safe-area-inset-bottom))}
+body.hasP .wrap{padding-bottom:calc(170px + env(safe-area-inset-bottom))}body.hasP #session .wrap{padding-bottom:90px!important}
 label.f{display:block;font-size:14px;color:var(--mute);margin:10px 0 4px}
 input.in,select.in,textarea.in{width:100%;min-height:48px;background:var(--p2);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:16px}
 textarea.in{min-height:84px;resize:vertical}
@@ -157,10 +183,11 @@ details summary{cursor:pointer;min-height:44px;display:flex;align-items:center}
 <body>
 <header class="top">
   <div class="brand">Dweekat <b>Fitness</b></div>
-  <button class="icon-btn" id="gear" aria-label="settings"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
+  <div class="hbtns"><button class="icon-btn" id="coachBtn" aria-label="coach"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h8"/></svg></button><button class="icon-btn" id="gear" aria-label="settings"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button></div>
 </header>
 <main class="wrap" id="view"><p class="mute">…</p></main>
 <nav class="tabs" id="tabs"></nav>
+<div id="player" hidden></div>
 <div id="session" hidden></div>
 <div id="sheet"><div class="in" id="sheetIn"></div></div>
 <div id="modal"><div class="in" id="modalIn"></div></div>
@@ -266,9 +293,9 @@ const METCON=[
 
 /* ================= STRINGS ================= */
 const STR={ar:{
-train:"التمرين",progress:"التطور",body:"الجسم",food:"الأكل",coach:"الكوتش",hello:"أهلاً {n}",nextUp:"تمرينك الجاي",start:"ابدأ",resume:"كمّل الحصة",resumeTxt:"عندك حصة مفتوحة: {d}",pickDay:"أو اختار يوم",howTo:"طريقة الأداء خطوة بخطوة",tipsT:"نصائح المدرب",lib:"مكتبة التمارين",libSub:"اضغط على أي تمرين لتشوف الصورة وطريقة الأداء",lastDone:"آخر مرة {d}",never:"لسا ما تمرنته",exN:"{n} تمارين",mins:"حوالي {n} دقيقة",restDay:"يوم راحة",restTxt:"العضلة بتكبر وقت الراحة. مشي خفيف 20–30 دقيقة إذا بدك، ونوم 7 ساعات وأكثر.",logRest:"سجّل يوم الراحة",mcNext:"Metcon هالأسبوع: نسخة {v}",week:"آخر 7 أيام",sessionsN:"حصص",levelUp:"آخر 3 حصص كانت سهلة عليك. نرفع المستوى لـ {l}؟",levelDown:"آخر 3 حصص كانت صعبة. ننزّل لـ {l} لفترة؟",yes:"أيوه",notNow:"مش هلأ",step:"الخطوة {a} من {b}",warm:"الإحماء",warmSub:"6–7 دقائق — جهّز المفاصل والعضلات",next:"تم — التالي",back:"رجوع",kg:"كغ",reps:"تكرار",sec:"ثانية",addSet:"زيد Set",rest:"راحة {n} ث",rir:"خلّي {n} تكرار بالخزان",drop:"Drop set بآخر Set",perSide:"لكل جهة",sugNew:"أول مرة: اختار وزن بتقدر تعمل فيه {hi} تكرار بتكنيك نظيف",sugUp:"وصلت للهدف المرة الماضية. زيد لـ {w} {u}",sugSame:"نفس الوزن {w} {u} وحاول تزيد تكرار",sugDown:"المرة الماضية كانت ثقيلة. نزّل لـ {w} {u} وركّز عالتكنيك",sugUpT:"وصلت للهدف. زيد 5 ثواني لكل Set",sugSameT:"حاول تزيد ثواني عن المرة الماضية",lastTime:"المرة الماضية: {s}",editHint:"عدّل التكرارات إذا ما وصلت للهدف، والتطبيق بيرفع الوزن لحاله",cardio:"الكارديو",startT:"ابدأ",pauseT:"وقّف",resetT:"صفّر",mcRule:"كل بلوك {r} مرات، وبين كل مرة لفة مشي {l} ث",mcRest:"راحة {n} ث بعد البلوك",block:"بلوك {n}",finale:"الختام — كله مع بعض",finR:"{n} مرة",totalTime:"الوقت الكلي",finish:"الختام",stretch:"تمطيط",rpe:"قديش كان التعب؟ (1–10)",feel:"كيف كان المستوى عليك؟",easy:"سهل",ok:"مناسب",hard:"صعب",notes:"ملاحظات (اختياري)",save:"احفظ الحصة",saved:"انحفظت الحصة",summary:"ملخص الحصة",duration:"المدة",setsDone:"Sets",volume:"الحجم (كغ)",prs:"أرقام جديدة",coachFb:"رأي الكوتش",home:"الرئيسية",exitT:"تطلع من الحصة؟",exitKeep:"كمّل بعدين",exitDiscard:"الغِ الحصة",cancel:"إلغاء",restTime:"راحة",nextSet:"يلا الـ Set الجاي",progT:"تطورك",allS:"كل الحصص",volW:"حجم الأسبوع",pickEx:"اختار تمرين",noData:"لسا ما في بيانات",history:"السجل",del:"احذف",sure:"متأكد؟ ما في رجعة",bodyT:"الجسم والقياسات",weight:"الوزن (كغ)",fat:"الدهون %",muscle:"العضل (كغ)",visceral:"الدهون الحشوية",date:"التاريخ",note:"ملاحظة",addEntry:"أضف قياس",inbodyHint:"سجّل InBody كل 4–6 أسابيع، والوزن مرة بالأسبوع بنفس الوقت",foodT:"الأكل اليوم",kcal:"سعرات",protein:"بروتين",carbs:"كارب",fiber:"ألياف",whatAte:"شو أكلت؟ اكتبه متل ما بتحكي، مثلاً: صحن رز مع صدر دجاج وسلطة",estimate:"احسب الأكل",estLocal:"بيحسب من قاعدة أكلات عربية بالجوال — اكتب الكمية مثل: ٢ سيخ، رغيفين، نص فروج، 200 غرام رز. وبتقدر تعدّل الأرقام قبل ما تضيف.",estAI:"بيحسبها الكوتش الذكي.",estMiss:"ما عرفت أحسب: {s} — ضيفها يدوي.",manual:"إدخال يدوي",add:"أضف",mealName:"اسم الوجبة",noAI:"الحساب الذكي بيشتغل لما تفتح التطبيق وانت مسجّل دخول على Claude. فيك تضيف يدوي.",estimating:"عم أحسب…",left:"باقي {n}",over:"زيادة {n}",coachT:"الكوتش",coachHello:"أنا الكوتش تبعك. بشوف حصصك وقياساتك وأكلك اليوم. اسألني أي شي عن التمرين والأكل والتعافي.",ask:"اكتب سؤالك…",send:"ابعت",clearChat:"امسح المحادثة",q1:"حلّل تطوري آخر أسبوعين",q2:"شو آكل قبل التمرين؟",q3:"بتعب بسرعة بالتمرين، شو أعمل؟",q4:"راجع أكلي اليوم",thinking:"لحظة…",aiErr:"ما قدرت أوصل للكوتش هلأ. جرّب بعد شوي.",aiOff:"الكوتش الذكي بيشتغل لما تفتح التطبيق وانت مسجّل دخول على Claude.",settings:"الإعدادات",name:"الاسم",language:"اللغة",level:"المستوى",goal:"الهدف",gCut:"نزول دهون",gRecomp:"نزول دهون + بناء عضل",gBulk:"بناء عضل",height:"الطول (سم)",targets:"أهداف الأكل اليومية",autoT:"احسب تلقائياً",saveB:"حفظ",storage:"الحفظ",cloud:"محفوظ على حسابك — بيظهر على كل أجهزتك",local:"محفوظ على هالجهاز بس — اعمل نسخة احتياطية من وقت لوقت",backup:"انسخ نسخة احتياطية",restore:"استرجع نسخة",restoreHint:"الصق النسخة هون أو اختار ملف",copied:"انتسخت — احفظها بمكان آمن",restored:"انسترجعت البيانات",bad:"النسخة مش صحيحة",reset:"امسح كل البيانات",obLang:"اختار اللغة",obName:"شو اسمك؟",obLevel:"شو مستواك بالتمرين؟",obGoal:"شو هدفك؟",obW:"وزنك الحالي (كغ)",cont:"التالي",go:"يلا نبدأ",lvNote:"المستوى بيرتفع معك لما يصير التمرين سهل",disc:"التطبيق دليل تدريب عام مش استشارة طبية. إذا حسّيت بألم حاد وقّف وراجع مختص.",dayN:"يوم {n}",ago0:"اليوم",ago1:"مبارح",agoN:"قبل {n} أيام",copy:"نسخ",saveOk:"انحفظ",gPick:"اختار",kcalU:"سعرة",gU:"غ",best:"أفضل وزن",sessions:"حصة",cycle:"الدورة",level0:"المستوى: {l}",rateIt:"قيّم الحصة"
+train:"التمرين",progress:"التطور",body:"الجسم",food:"الأكل",coach:"الكوتش",hello:"أهلاً {n}",nextUp:"تمرينك الجاي",start:"ابدأ",resume:"كمّل الحصة",resumeTxt:"عندك حصة مفتوحة: {d}",pickDay:"أو اختار يوم",meals:"الوجبات",media:"الصوتيات",mealsT:"وجبات اليوم",mealsSub:"حسب وزنك {w} كغ — هدفك {k} سعرة و{p}غ بروتين. بتتجدد كل يوم.",mB:"فطور",mL:"غدا",mD:"عشا",mS:"سناك",swap:"بدّل",addMine:"أضف لأكلي",mNew:"اقتراحات جديدة",mNote:"الكميات تقريبية ومحسوبة على هدفك. غيّر وزنك أو هدفك من الإعدادات والاقتراحات بتتعدل.",mMusic:"موسيقى",mQuran:"القرآن الكريم",mPod:"بودكاست",mLoading:"عم يحمّل…",mErr:"ما قدرت أشغّل هالمقطع — جرّب غيره",mOff:"ما قدرت أجيب المحطات هلأ — هاي قائمة احتياطية.",mLive:"محطات مباشرة مرتبة حسب الأكثر استماعاً اليوم — بتتحدّث يومياً.",mOffP:"ما قدرت أجيب البودكاست — تأكد من الإنترنت وجرّب كمان مرة.",reciter:"القارئ",playAll:"شغّل من البداية",latestEp:"أحدث الحلقات",shows:"البرامج",backB:"رجوع",tipT:"نصيحة اليوم",tipGo:"يلا نبدأ 💪",sfx:"أصوات التطبيق",sfxOn:"شغّالة",sfxOff:"مطفية",q5:"كيف بكسر الثبات بالوزن؟",q6:"شو تمريني اليوم؟",howTo:"طريقة الأداء خطوة بخطوة",tipsT:"نصائح المدرب",lib:"مكتبة التمارين",libSub:"اضغط على أي تمرين لتشوف الصورة وطريقة الأداء",lastDone:"آخر مرة {d}",never:"لسا ما تمرنته",exN:"{n} تمارين",mins:"حوالي {n} دقيقة",restDay:"يوم راحة",restTxt:"العضلة بتكبر وقت الراحة. مشي خفيف 20–30 دقيقة إذا بدك، ونوم 7 ساعات وأكثر.",logRest:"سجّل يوم الراحة",mcNext:"Metcon هالأسبوع: نسخة {v}",week:"آخر 7 أيام",sessionsN:"حصص",levelUp:"آخر 3 حصص كانت سهلة عليك. نرفع المستوى لـ {l}؟",levelDown:"آخر 3 حصص كانت صعبة. ننزّل لـ {l} لفترة؟",yes:"أيوه",notNow:"مش هلأ",step:"الخطوة {a} من {b}",warm:"الإحماء",warmSub:"6–7 دقائق — جهّز المفاصل والعضلات",next:"تم — التالي",back:"رجوع",kg:"كغ",reps:"تكرار",sec:"ثانية",addSet:"زيد Set",rest:"راحة {n} ث",rir:"خلّي {n} تكرار بالخزان",drop:"Drop set بآخر Set",perSide:"لكل جهة",sugNew:"أول مرة: اختار وزن بتقدر تعمل فيه {hi} تكرار بتكنيك نظيف",sugUp:"وصلت للهدف المرة الماضية. زيد لـ {w} {u}",sugSame:"نفس الوزن {w} {u} وحاول تزيد تكرار",sugDown:"المرة الماضية كانت ثقيلة. نزّل لـ {w} {u} وركّز عالتكنيك",sugUpT:"وصلت للهدف. زيد 5 ثواني لكل Set",sugSameT:"حاول تزيد ثواني عن المرة الماضية",lastTime:"المرة الماضية: {s}",editHint:"عدّل التكرارات إذا ما وصلت للهدف، والتطبيق بيرفع الوزن لحاله",cardio:"الكارديو",startT:"ابدأ",pauseT:"وقّف",resetT:"صفّر",mcRule:"كل بلوك {r} مرات، وبين كل مرة لفة مشي {l} ث",mcRest:"راحة {n} ث بعد البلوك",block:"بلوك {n}",finale:"الختام — كله مع بعض",finR:"{n} مرة",totalTime:"الوقت الكلي",finish:"الختام",stretch:"تمطيط",rpe:"قديش كان التعب؟ (1–10)",feel:"كيف كان المستوى عليك؟",easy:"سهل",ok:"مناسب",hard:"صعب",notes:"ملاحظات (اختياري)",save:"احفظ الحصة",saved:"انحفظت الحصة",summary:"ملخص الحصة",duration:"المدة",setsDone:"Sets",volume:"الحجم (كغ)",prs:"أرقام جديدة",coachFb:"رأي الكوتش",home:"الرئيسية",exitT:"تطلع من الحصة؟",exitKeep:"كمّل بعدين",exitDiscard:"الغِ الحصة",cancel:"إلغاء",restTime:"راحة",nextSet:"يلا الـ Set الجاي",progT:"تطورك",allS:"كل الحصص",volW:"حجم الأسبوع",pickEx:"اختار تمرين",noData:"لسا ما في بيانات",history:"السجل",del:"احذف",sure:"متأكد؟ ما في رجعة",bodyT:"الجسم والقياسات",weight:"الوزن (كغ)",fat:"الدهون %",muscle:"العضل (كغ)",visceral:"الدهون الحشوية",date:"التاريخ",note:"ملاحظة",addEntry:"أضف قياس",inbodyHint:"سجّل InBody كل 4–6 أسابيع، والوزن مرة بالأسبوع بنفس الوقت",foodT:"الأكل اليوم",kcal:"سعرات",protein:"بروتين",carbs:"كارب",fiber:"ألياف",whatAte:"شو أكلت؟ اكتبه متل ما بتحكي، مثلاً: صحن رز مع صدر دجاج وسلطة",estimate:"احسب الأكل",estLocal:"بيحسب من قاعدة أكلات عربية بالجوال — اكتب الكمية مثل: ٢ سيخ، رغيفين، نص فروج، 200 غرام رز. وبتقدر تعدّل الأرقام قبل ما تضيف.",estAI:"بيحسبها الكوتش الذكي.",estMiss:"ما عرفت أحسب: {s} — ضيفها يدوي.",manual:"إدخال يدوي",add:"أضف",mealName:"اسم الوجبة",noAI:"الحساب الذكي بيشتغل لما تفتح التطبيق وانت مسجّل دخول على Claude. فيك تضيف يدوي.",estimating:"عم أحسب…",left:"باقي {n}",over:"زيادة {n}",coachT:"الكوتش",coachHello:"أنا الكوتش تبعك 💪 بشتغل بدون إنترنت وبشوف حصصك وقياساتك وأكلك. اختار سؤال تحت أو اكتب سؤالك.",ask:"اكتب سؤالك…",send:"ابعت",clearChat:"امسح المحادثة",q1:"حلّل تطوري آخر أسبوعين",q2:"شو آكل قبل التمرين؟",q3:"بتعب بسرعة بالتمرين، شو أعمل؟",q4:"راجع أكلي اليوم",thinking:"لحظة…",aiErr:"ما قدرت أوصل للكوتش هلأ. جرّب بعد شوي.",aiOff:"الكوتش الذكي بيشتغل لما تفتح التطبيق وانت مسجّل دخول على Claude.",settings:"الإعدادات",name:"الاسم",language:"اللغة",level:"المستوى",goal:"الهدف",gCut:"نزول دهون",gRecomp:"نزول دهون + بناء عضل",gBulk:"بناء عضل",height:"الطول (سم)",targets:"أهداف الأكل اليومية",autoT:"احسب تلقائياً",saveB:"حفظ",storage:"الحفظ",cloud:"محفوظ على حسابك — بيظهر على كل أجهزتك",local:"محفوظ على هالجهاز بس — اعمل نسخة احتياطية من وقت لوقت",backup:"انسخ نسخة احتياطية",restore:"استرجع نسخة",restoreHint:"الصق النسخة هون أو اختار ملف",copied:"انتسخت — احفظها بمكان آمن",restored:"انسترجعت البيانات",bad:"النسخة مش صحيحة",reset:"امسح كل البيانات",obLang:"اختار اللغة",obName:"شو اسمك؟",obLevel:"شو مستواك بالتمرين؟",obGoal:"شو هدفك؟",obW:"وزنك الحالي (كغ)",cont:"التالي",go:"يلا نبدأ",lvNote:"المستوى بيرتفع معك لما يصير التمرين سهل",disc:"التطبيق دليل تدريب عام مش استشارة طبية. إذا حسّيت بألم حاد وقّف وراجع مختص.",dayN:"يوم {n}",ago0:"اليوم",ago1:"مبارح",agoN:"قبل {n} أيام",copy:"نسخ",saveOk:"انحفظ",gPick:"اختار",kcalU:"سعرة",gU:"غ",best:"أفضل وزن",sessions:"حصة",cycle:"الدورة",level0:"المستوى: {l}",rateIt:"قيّم الحصة"
 },en:{
-train:"Train",progress:"Progress",body:"Body",food:"Food",coach:"Coach",hello:"Hi {n}",nextUp:"Up next",start:"Start",resume:"Resume session",resumeTxt:"You have an open session: {d}",pickDay:"Or pick a day",howTo:"How to do it — step by step",tipsT:"Coach tips",lib:"Exercise library",libSub:"Tap any exercise to see the picture and how to do it",lastDone:"Last {d}",never:"Not done yet",exN:"{n} exercises",mins:"~{n} min",restDay:"Rest day",restTxt:"Muscle grows while you rest. Optional easy walk 20–30 min, and 7+ hours of sleep.",logRest:"Log rest day",mcNext:"This week's Metcon: version {v}",week:"Last 7 days",sessionsN:"sessions",levelUp:"Your last 3 sessions felt easy. Move up to {l}?",levelDown:"Your last 3 sessions felt hard. Drop to {l} for a while?",yes:"Yes",notNow:"Not now",step:"Step {a} of {b}",warm:"Warm-up",warmSub:"6–7 min — prep joints and muscles",next:"Done — next",back:"Back",kg:"kg",reps:"Reps",sec:"sec",addSet:"+ Set",rest:"Rest {n}s",rir:"Leave {n} reps in the tank",drop:"Drop set on the last set",perSide:"per side",sugNew:"First time: pick a weight you can do {hi} clean reps with",sugUp:"You hit the top last time. Go up to {w} {u}",sugSame:"Same weight {w} {u} — beat your reps",sugDown:"Last time was heavy. Drop to {w} {u} and own the technique",sugUpT:"Target hit. Add 5 seconds per set",sugSameT:"Try to beat last time's seconds",lastTime:"Last time: {s}",editHint:"Edit reps if you missed the target — the app raises the weight for you",cardio:"Cardio",startT:"Start",pauseT:"Pause",resetT:"Reset",mcRule:"Each block {r}×, with a {l}s walk lap between rounds",mcRest:"Rest {n}s after the block",block:"Block {n}",finale:"Finale — all together",finR:"{n}×",totalTime:"Total time",finish:"Finish",stretch:"Stretch",rpe:"How hard was it? (1–10)",feel:"How did the level feel?",easy:"Easy",ok:"Just right",hard:"Hard",notes:"Notes (optional)",save:"Save session",saved:"Session saved",summary:"Session summary",duration:"Duration",setsDone:"Sets",volume:"Volume (kg)",prs:"New bests",coachFb:"Coach feedback",home:"Home",exitT:"Leave the session?",exitKeep:"Keep for later",exitDiscard:"Discard",cancel:"Cancel",restTime:"Rest",nextSet:"Next set — go",progT:"Your progress",allS:"All sessions",volW:"Weekly volume",pickEx:"Pick an exercise",noData:"No data yet",history:"History",del:"Delete",sure:"Sure? This can't be undone",bodyT:"Body & measurements",weight:"Weight (kg)",fat:"Body fat %",muscle:"Muscle (kg)",visceral:"Visceral fat",date:"Date",note:"Note",addEntry:"Add entry",inbodyHint:"Log InBody every 4–6 weeks, weight weekly at the same time",foodT:"Food today",kcal:"Calories",protein:"Protein",carbs:"Carbs",fiber:"Fiber",whatAte:"What did you eat? Describe it, e.g. a plate of rice with chicken breast and salad",estimate:"Calculate",estLocal:"Uses a built-in food list on your phone — add amounts like: 2 skewers, 2 loaves, half chicken, 200 g rice. You can edit the numbers before adding.",estAI:"Estimated by the smart coach.",estMiss:"Couldn't calculate: {s} — add it manually.",manual:"Manual entry",add:"Add",mealName:"Meal name",noAI:"Smart estimates work when you open the app signed in to Claude. You can add manually.",estimating:"Estimating…",left:"{n} left",over:"{n} over",coachT:"Coach",coachHello:"I'm your coach. I can see your sessions, measurements and today's food. Ask me anything about training, food and recovery.",ask:"Ask anything…",send:"Send",clearChat:"Clear chat",q1:"Analyse my last two weeks",q2:"What should I eat before training?",q3:"I get tired fast in workouts — what do I do?",q4:"Review my food today",thinking:"Thinking…",aiErr:"Couldn't reach the coach right now. Try again shortly.",aiOff:"The smart coach works when you open the app signed in to Claude.",settings:"Settings",name:"Name",language:"Language",level:"Level",goal:"Goal",gCut:"Lose fat",gRecomp:"Lose fat + build muscle",gBulk:"Build muscle",height:"Height (cm)",targets:"Daily food targets",autoT:"Auto-calculate",saveB:"Save",storage:"Storage",cloud:"Saved to your account — on all your devices",local:"Saved on this device only — back up now and then",backup:"Copy backup",restore:"Restore backup",restoreHint:"Paste a backup here or choose a file",copied:"Copied — keep it somewhere safe",restored:"Data restored",bad:"That backup isn't valid",reset:"Erase all data",obLang:"Choose language",obName:"What's your name?",obLevel:"What's your training level?",obGoal:"What's your goal?",obW:"Current weight (kg)",cont:"Next",go:"Let's go",lvNote:"Your level moves up when training gets easy",disc:"General training guidance, not medical advice. Sharp pain? Stop and see a professional.",dayN:"Day {n}",ago0:"today",ago1:"yesterday",agoN:"{n} days ago",copy:"Copy",saveOk:"Saved",gPick:"Pick",kcalU:"kcal",gU:"g",best:"Best weight",sessions:"session",cycle:"Cycle",level0:"Level: {l}",rateIt:"Rate the session"
+train:"Train",progress:"Progress",body:"Body",food:"Food",coach:"Coach",hello:"Hi {n}",nextUp:"Up next",start:"Start",resume:"Resume session",resumeTxt:"You have an open session: {d}",pickDay:"Or pick a day",meals:"Meals",media:"Audio",mealsT:"Today's meals",mealsSub:"Based on your weight {w} kg — target {k} kcal and {p} g protein. Refreshes daily.",mB:"Breakfast",mL:"Lunch",mD:"Dinner",mS:"Snack",swap:"Swap",addMine:"Add to my food",mNew:"Fresh ideas",mNote:"Amounts are approximate and scaled to your target. Change weight or goal in settings and ideas adjust.",mMusic:"Music",mQuran:"Holy Quran",mPod:"Podcasts",mLoading:"Loading…",mErr:"Couldn't play this — try another",mOff:"Couldn't load stations right now — here is a backup list.",mLive:"Live stations ranked by today's listeners — updated daily.",mOffP:"Couldn't load podcasts — check your connection and try again.",reciter:"Reciter",playAll:"Play from the start",latestEp:"Latest episodes",shows:"Shows",backB:"Back",tipT:"Tip of the day",tipGo:"Let's go 💪",sfx:"App sounds",sfxOn:"On",sfxOff:"Off",q5:"How do I break a weight plateau?",q6:"What's my workout today?",howTo:"How to do it — step by step",tipsT:"Coach tips",lib:"Exercise library",libSub:"Tap any exercise to see the picture and how to do it",lastDone:"Last {d}",never:"Not done yet",exN:"{n} exercises",mins:"~{n} min",restDay:"Rest day",restTxt:"Muscle grows while you rest. Optional easy walk 20–30 min, and 7+ hours of sleep.",logRest:"Log rest day",mcNext:"This week's Metcon: version {v}",week:"Last 7 days",sessionsN:"sessions",levelUp:"Your last 3 sessions felt easy. Move up to {l}?",levelDown:"Your last 3 sessions felt hard. Drop to {l} for a while?",yes:"Yes",notNow:"Not now",step:"Step {a} of {b}",warm:"Warm-up",warmSub:"6–7 min — prep joints and muscles",next:"Done — next",back:"Back",kg:"kg",reps:"Reps",sec:"sec",addSet:"+ Set",rest:"Rest {n}s",rir:"Leave {n} reps in the tank",drop:"Drop set on the last set",perSide:"per side",sugNew:"First time: pick a weight you can do {hi} clean reps with",sugUp:"You hit the top last time. Go up to {w} {u}",sugSame:"Same weight {w} {u} — beat your reps",sugDown:"Last time was heavy. Drop to {w} {u} and own the technique",sugUpT:"Target hit. Add 5 seconds per set",sugSameT:"Try to beat last time's seconds",lastTime:"Last time: {s}",editHint:"Edit reps if you missed the target — the app raises the weight for you",cardio:"Cardio",startT:"Start",pauseT:"Pause",resetT:"Reset",mcRule:"Each block {r}×, with a {l}s walk lap between rounds",mcRest:"Rest {n}s after the block",block:"Block {n}",finale:"Finale — all together",finR:"{n}×",totalTime:"Total time",finish:"Finish",stretch:"Stretch",rpe:"How hard was it? (1–10)",feel:"How did the level feel?",easy:"Easy",ok:"Just right",hard:"Hard",notes:"Notes (optional)",save:"Save session",saved:"Session saved",summary:"Session summary",duration:"Duration",setsDone:"Sets",volume:"Volume (kg)",prs:"New bests",coachFb:"Coach feedback",home:"Home",exitT:"Leave the session?",exitKeep:"Keep for later",exitDiscard:"Discard",cancel:"Cancel",restTime:"Rest",nextSet:"Next set — go",progT:"Your progress",allS:"All sessions",volW:"Weekly volume",pickEx:"Pick an exercise",noData:"No data yet",history:"History",del:"Delete",sure:"Sure? This can't be undone",bodyT:"Body & measurements",weight:"Weight (kg)",fat:"Body fat %",muscle:"Muscle (kg)",visceral:"Visceral fat",date:"Date",note:"Note",addEntry:"Add entry",inbodyHint:"Log InBody every 4–6 weeks, weight weekly at the same time",foodT:"Food today",kcal:"Calories",protein:"Protein",carbs:"Carbs",fiber:"Fiber",whatAte:"What did you eat? Describe it, e.g. a plate of rice with chicken breast and salad",estimate:"Calculate",estLocal:"Uses a built-in food list on your phone — add amounts like: 2 skewers, 2 loaves, half chicken, 200 g rice. You can edit the numbers before adding.",estAI:"Estimated by the smart coach.",estMiss:"Couldn't calculate: {s} — add it manually.",manual:"Manual entry",add:"Add",mealName:"Meal name",noAI:"Smart estimates work when you open the app signed in to Claude. You can add manually.",estimating:"Estimating…",left:"{n} left",over:"{n} over",coachT:"Coach",coachHello:"I'm your coach. I can see your sessions, measurements and today's food. Ask me anything about training, food and recovery.",ask:"Ask anything…",send:"Send",clearChat:"Clear chat",q1:"Analyse my last two weeks",q2:"What should I eat before training?",q3:"I get tired fast in workouts — what do I do?",q4:"Review my food today",thinking:"Thinking…",aiErr:"Couldn't reach the coach right now. Try again shortly.",aiOff:"The smart coach works when you open the app signed in to Claude.",settings:"Settings",name:"Name",language:"Language",level:"Level",goal:"Goal",gCut:"Lose fat",gRecomp:"Lose fat + build muscle",gBulk:"Build muscle",height:"Height (cm)",targets:"Daily food targets",autoT:"Auto-calculate",saveB:"Save",storage:"Storage",cloud:"Saved to your account — on all your devices",local:"Saved on this device only — back up now and then",backup:"Copy backup",restore:"Restore backup",restoreHint:"Paste a backup here or choose a file",copied:"Copied — keep it somewhere safe",restored:"Data restored",bad:"That backup isn't valid",reset:"Erase all data",obLang:"Choose language",obName:"What's your name?",obLevel:"What's your training level?",obGoal:"What's your goal?",obW:"Current weight (kg)",cont:"Next",go:"Let's go",lvNote:"Your level moves up when training gets easy",disc:"General training guidance, not medical advice. Sharp pain? Stop and see a professional.",dayN:"Day {n}",ago0:"today",ago1:"yesterday",agoN:"{n} days ago",copy:"Copy",saveOk:"Saved",gPick:"Pick",kcalU:"kcal",gU:"g",best:"Best weight",sessions:"session",cycle:"Cycle",level0:"Level: {l}",rateIt:"Rate the session"
 }};
 
 /* ================= HELPERS ================= */
@@ -293,7 +320,14 @@ progress:'<svg viewBox="0 0 24 24"><path d="M3 19h18M5 15l4-4 4 3 6-7"/></svg>',
 body:'<svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.5"/><path d="M6 9h12M12 9v6M12 15l-3 6M12 15l3 6"/></svg>',
 food:'<svg viewBox="0 0 24 24"><path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M17 3c-2 2-3 5-3 8h3v10"/></svg>',
 coach:'<svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h8"/></svg>',
-x:'<svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>'
+x:'<svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+meals:'<svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="7"/><circle cx="12" cy="13" r="3.5"/><path d="M12 3v2"/></svg>',
+media:'<svg viewBox="0 0 24 24"><path d="M9 18V6l11-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></svg>',
+bulb:'<svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/></svg>',
+play:'<svg viewBox="0 0 24 24"><path d="M7 5l12 7-12 7z" class="fl"/></svg>',
+pause:'<svg viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></svg>',
+next:'<svg viewBox="0 0 24 24"><path d="M5 5l10 7-10 7z" class="fl"/><path d="M19 5v14"/></svg>',
+prev:'<svg viewBox="0 0 24 24"><path d="M19 5L9 12l10 7z" class="fl"/><path d="M5 5v14"/></svg>'
 };
 const RUN=/(?:[+\-\u2212](?=\d))?[A-Za-z0-9\u00d7%][A-Za-z0-9.,'\u2019\u00d7\u2013\-\/%\u00b0+:]*(?:[ ]+[A-Za-z0-9\u00d7+\/][A-Za-z0-9.,'\u2019\u00d7\u2013\-\/%\u00b0+:]*)*/g;
 const isoS=v=>v.replace(RUN,m=>"\u2066"+m+"\u2069");
@@ -317,7 +351,7 @@ const Store={mode:"local",db:null,uid:null,q:{},docs:{},
     this.q[k]=(this.q[k]||Promise.resolve()).then(()=>this.ref(k).delete()).catch(e=>this.fail(e))},
   fail(e){if(e&&(e.code==="invalid_argument"||e.code==="revoked"||e.code==="not_granted")){this.mode="local"}},
   async cloud(){
-    const C=window.claude&&typeof window.claude.use==="function"?window.claude:null;if(!C)return false;
+    return false;const C=null;
     try{
       const [db,user]=await Promise.all([C.use("db"),C.use("user")]);if(!db||!user)return false;
       const id=await user.id();if(!id)return false;
@@ -350,7 +384,7 @@ function saveActive(){try{if(S.active)localStorage.setItem(LK+":active",JSON.str
 
 /* ================= AI ================= */
 let AI=null;
-async function initAI(){const C=window.claude&&typeof window.claude.use==="function"?window.claude:null;if(!C)return;try{AI=await C.use("sample")}catch(e){AI=null}}
+async function initAI(){} /* app runs fully offline — no external AI */
 function ctxText(){
   const p=S.profile||{},lv=LV[p.level||"int"];
   const last=S.sessions.slice(-6).map(s=>{const day=DAYS[s.day-1];const ex=Object.entries(s.ex||{}).map(([k,v])=>{const ds=(v.sets||[]).filter(x=>x.done);return EXD[k]?EXD[k].n+": "+ds.map(x=>(x.w??"")+"x"+x.r).join(", "):""}).filter(Boolean).join(" | ");return `${dkey(new Date(s.start))} Day${s.day} ${tr(day.n)} RPE ${s.rpe||"-"} feel ${s.feel||"-"} ${s.metcon?"Metcon "+s.metcon.ver+" "+(s.metcon.timeSec?mmss(s.metcon.timeSec):""):""} :: ${ex}`}).join("\n");
@@ -402,18 +436,20 @@ function buildSession(dayId){
 /* ================= TABS / VIEWS ================= */
 let TAB="train";
 function renderTabs(){
-  const tabs=["train","progress","body","food","coach"];
+  const tabs=["train","food","meals","media","progress","body"];
   $("#tabs").innerHTML=tabs.map(k=>`<button data-tab="${k}" ${TAB===k?'aria-current="page"':""}>${ICON[k]}<span>${t(k)}</span></button>`).join("");
 }
 $("#tabs").addEventListener("click",e=>{const b=e.target.closest("[data-tab]");if(!b)return;TAB=b.dataset.tab;try{history.replaceState(null,"","#"+TAB)}catch(x){}render()});
 $("#gear").addEventListener("click",()=>openSettings());
+$("#coachBtn").addEventListener("click",()=>{TAB="coach";try{history.replaceState(null,"","#coach")}catch(x){}render()});
 function applyLang(){document.documentElement.lang=L();document.documentElement.dir=L()==="ar"?"rtl":"ltr";$("#gear").setAttribute("aria-label",t("settings"))}
 function render(){
   applyLang();
-  if(!S.profile||!S.profile.done){$("#tabs").hidden=true;$("#gear").hidden=true;return renderOnboarding()}
-  $("#tabs").hidden=false;$("#gear").hidden=false;renderTabs();
+  if(!S.profile||!S.profile.done){$("#tabs").hidden=true;$("#gear").hidden=true;$("#coachBtn").hidden=true;return renderOnboarding()}
+  $("#tabs").hidden=false;$("#gear").hidden=false;$("#coachBtn").hidden=false;renderTabs();
   $("#view").onclick=null;window.scrollTo(0,0);
-  ({train:renderTrain,progress:renderProgress,body:renderBody,food:renderFood,coach:renderCoach}[TAB]||renderTrain)();
+  ({train:renderTrain,progress:renderProgress,body:renderBody,food:renderFood,meals:renderMeals,media:renderMedia,coach:renderCoach}[TAB]||renderTrain)();
+  $("#coachBtn").classList.toggle("on",TAB==="coach");maybeTip();
 }
 
 /* ---------- onboarding ---------- */
@@ -445,6 +481,7 @@ function renderTrain(){
   const last7=S.sessions.filter(s=>Date.now()-s.start<7*864e5&&!s.rest);
   const vol7=last7.reduce((a,s)=>a+sessVolume(s),0);
   let h=`<h1>${t("hello",{n:esc(p.name)})}</h1><div class="row"><span class="chip">${t("level0",{l:tr(lvl().n)})}</span><span class="chip">${t("mcNext",{v:mcVer().id+" — "+tr(mcVer().n)})}</span></div>`;
+  h+=`<div class="card tipc"><span class="tipi">${ICON.bulb}</span><div><div class="tiny">${t("tipT")}</div><div class="small">${esc(tr(tipToday()))}</div></div></div>`;
   if(S.active){const ad=DAYS[S.active.day-1];h+=`<div class="card hero"><b>${t("resume")}</b><p class="mute small">${t("resumeTxt",{d:t("dayN",{n:ad.id})+" — "+tr(ad.n)})}</p><button class="btn pri wide" id="resume">${t("resume")}</button></div>`}
   const pr=S.progress,lvKeys=LVK,li=lvKeys.indexOf(p.level);
   if(pr.easy>=3&&li<2&&pr.dismiss!==S.sessions.length)h+=`<div class="card" style="border:1px solid #2f5a36"><p style="margin:0 0 10px">${t("levelUp",{l:tr(LV[lvKeys[li+1]].n)})}</p><div class="row"><button class="btn ok" data-lvch="${lvKeys[li+1]}">${t("yes")}</button><button class="btn ghost" data-dismiss>${t("notNow")}</button></div></div>`;
@@ -472,8 +509,8 @@ function sessVolume(s){let v=0;for(const k in s.ex||{}){if(EXD[k]&&EXD[k].unit==
 
 /* ---------- session ---------- */
 const SE=$("#session");let restT=null,swT=null;
-function openSession(){SE.hidden=false;document.body.style.overflow="hidden";renderStep()}
-function closeSession(){SE.hidden=true;SE.innerHTML="";document.body.style.overflow="";stopRest();clearInterval(swT);render()}
+function openSession(){SE.hidden=false;document.body.classList.add("sess");document.body.style.overflow="hidden";renderStep()}
+function closeSession(){SE.hidden=true;document.body.classList.remove("sess");SE.innerHTML="";document.body.style.overflow="";stopRest();clearInterval(swT);render()}
 function pic(k,label){return `<div class="clip pic"><img src="${IMG(k)}-0.jpg" alt="" loading="lazy"><img src="${IMG(k)}-1.jpg" alt="" loading="lazy">${label?`<span class="chip">${esc(label)}</span>`:""}</div>`}
 function vid(clip){return pic(clip)}
 function howBox(k,open){const st=HOW[k];if(!st)return "";return `<details class="how"${open?" open":""}><summary>${t("howTo")}</summary><ol>${st.map(x=>`<li>${esc(tr(x))}</li>`).join("")}</ol></details>`}
@@ -560,8 +597,8 @@ function finishSession(){
   const dur=Math.round((ses.end-ses.start)/60000);
   stopRest();clearInterval(swT);
   SE.innerHTML=`<div class="wrap" style="padding-top:24px"><div class="card hero"><div class="tiny">${t("summary")}</div><h1>${t("saved")}</h1><div class="grid3" style="margin-top:12px"><div class="stat"><b>${dur}</b><span>${t("duration")} (${L()==="ar"?"د":"min"})</span></div><div class="stat"><b>${sets}</b><span>${t("setsDone")}</span></div><div class="stat"><b>${Math.round(sessVolume(ses)).toLocaleString("en")}</b><span>${t("volume")}</span></div></div>${prs?`<p style="margin:12px 0 0"><span class="chip ok">${t("prs")}: ${prs}</span></p>`:""}</div>
-  <div class="card" id="fbBox"><b>${t("coachFb")}</b><p class="mute small" id="fbTxt">${AI?"":t("aiOff")}</p>${AI?`<button class="btn wide" id="fbGo">${t("coachFb")}</button>`:""}</div><button class="btn pri wide" id="goHome">${t("home")}</button></div>`;
-  $("#goHome").onclick=()=>{TAB="train";closeSession()};
+  <div class="card" id="fbBox"><b>${t("coachFb")}</b><p class="small" id="fbTxt" style="white-space:pre-wrap;margin:8px 0 0">${esc(sessionFeedback(ses,prs))}</p></div><button class="btn pri wide" id="goHome">${t("home")}</button></div>`;
+  $("#goHome").onclick=()=>{TAB="train";closeSession()};winSfx();
   const fb=$("#fbGo");if(fb)fb.onclick=async()=>{fb.disabled=true;const out=$("#fbTxt");out.textContent=t("thinking");
     const day=DAYS[ses.day-1];const detail=Object.entries(ses.ex).map(([k,v])=>EXD[k].n+" (target "+EXD[k].r.join("-")+"): "+v.sets.filter(s=>s.done).map(s=>(s.w??"")+"x"+s.r).join(", ")).join("\n");
     try{const r=await AI(`${COACH_RULES()}\n\n${ctxText()}\n\nThe person just finished Day ${ses.day} ${tr(day.n)} in ${dur} min, RPE ${ses.rpe||"-"}, felt ${ses.feel||"-"}.\n${detail}\n${ses.metcon?"Metcon "+ses.metcon.ver+" time "+mmss(ses.metcon.timeSec):""}\nNotes: ${ses.notes||"-"}\n\nGive short post-session feedback: what went well, what to change next time (weights/reps), and one recovery or nutrition tip for today.`,{modelTier:"default",onText:({text})=>{out.textContent=text}});out.textContent=r.text}catch(e){out.textContent=t("aiErr");fb.disabled=false}};
@@ -767,23 +804,6 @@ function showEst(){$("#estBox").innerHTML=EST.map((x,i)=>`<div data-er="${i}" cl
 
 /* ---------- coach chat ---------- */
 let BUSY=false;
-function renderCoach(){
-  const v=$("#view");
-  let h=`<div class="row between"><h1>${t("coachT")}</h1>${S.chat.length?`<button class="btn ghost" id="cClr">${t("clearChat")}</button>`:""}</div>`;
-  if(!AI){v.innerHTML=h+`<div class="card"><p class="mute">${t("aiOff")}</p></div>`;return}
-  h+=`<div class="msgs" id="msgs"><div class="msg a">${esc(t("coachHello"))}</div>${S.chat.map(m=>`<div class="msg ${m.role==="user"?"u":"a"}">${esc(m.content)}</div>`).join("")}</div>`;
-  if(!S.chat.length)h+=`<div class="row">${["q1","q2","q3","q4"].map(q=>`<button class="chip" data-q="${q}" style="min-height:40px">${t(q)}</button>`).join("")}</div>`;
-  h+=`<form class="chat-in" id="cf"><textarea class="in" id="cq" placeholder="${t("ask")}"></textarea><button class="btn pri" ${BUSY?"disabled":""}>${t("send")}</button></form>`;
-  v.innerHTML=h;window.scrollTo(0,document.body.scrollHeight);
-  $("#cf").onsubmit=e=>{e.preventDefault();ask($("#cq").value.trim())};
-  v.onclick=e=>{const b=e.target.closest("button");if(!b)return;if(b.dataset.q)ask(t(b.dataset.q));if(b.id==="cClr"){S.chat=[];saveChat();renderCoach()}};
-}
-async function ask(q){if(!q||BUSY||!AI)return;BUSY=true;S.chat.push({role:"user",content:q});renderCoach();
-  const box=document.createElement("div");box.className="msg a";box.textContent=t("thinking");$("#msgs").appendChild(box);window.scrollTo(0,document.body.scrollHeight);
-  const hist=S.chat.slice(-12);const first=`${COACH_RULES()}\n\n${ctxText()}\n\n`;
-  const input=hist.map((m,i)=>({role:m.role,content:i===0&&m.role==="user"?first+m.content:m.content}));if(input[0].role!=="user")input.unshift({role:"user",content:first+"(context)"});
-  try{const r=await AI(input,{modelTier:"default",cache:false,onText:({text})=>{box.textContent=text}});S.chat.push({role:"assistant",content:r.text});saveChat()}catch(e){box.textContent=t("aiErr");S.chat.pop()}
-  BUSY=false;if(TAB==="coach")renderCoach()}
 
 /* ---------- settings ---------- */
 function openSettings(){
@@ -791,6 +811,7 @@ function openSettings(){
   modal(`<div class="row between"><h2>${t("settings")}</h2><button class="icon-btn" id="sClose" aria-label="close">${ICON.x}</button></div>
   <label class="f" for="sName">${t("name")}</label><input class="in" id="sName" value="${esc(p.name)}">
   <label class="f">${t("language")}</label><div class="seg"><button data-sl="ar" aria-pressed="${p.lang==="ar"}">العربية</button><button data-sl="en" aria-pressed="${p.lang==="en"}">English</button></div>
+  <label class="f">${t("sfx")}</label><div class="seg"><button data-sfx="1" aria-pressed="${p.sfx!==false}">${t("sfxOn")}</button><button data-sfx="0" aria-pressed="${p.sfx===false}">${t("sfxOff")}</button></div>
   <label class="f">${t("level")}</label>${LVK.map(k=>`<button class="opt" data-slv="${k}" aria-pressed="${p.level===k}"><b>${tr(LV[k].n)}</b><span class="mute small">${tr(LV[k].d)}</span></button>`).join("")}
   <label class="f" for="sGoal">${t("goal")}</label><select class="in" id="sGoal">${["cut","recomp","bulk"].map(g=>`<option value="${g}" ${p.goal===g?"selected":""}>${t({cut:"gCut",recomp:"gRecomp",bulk:"gBulk"}[g])}</option>`).join("")}</select>
   <div class="grid2"><div><label class="f" for="sW">${t("weight")}</label><input class="in" id="sW" inputmode="decimal" value="${p.weight??""}"></div><div><label class="f" for="sH">${t("height")}</label><input class="in" id="sH" inputmode="numeric" value="${p.height??""}"></div></div>
@@ -803,6 +824,7 @@ function openSettings(){
   const M=$("#modalIn");let lang=p.lang,level=p.level;
   M.onclick=async e=>{const b=e.target.closest("button");if(!b)return;
     if(b.id==="sClose")return closeModal();
+    if(b.dataset.sfx){p.sfx=b.dataset.sfx==="1";saveProfile();M.querySelectorAll("[data-sfx]").forEach(x=>x.setAttribute("aria-pressed",x===b));tapSfx();return}
     if(b.dataset.sl){lang=b.dataset.sl;M.querySelectorAll("[data-sl]").forEach(x=>x.setAttribute("aria-pressed",x.dataset.sl===lang))}
     if(b.dataset.slv){level=b.dataset.slv;M.querySelectorAll("[data-slv]").forEach(x=>x.setAttribute("aria-pressed",x.dataset.slv===level))}
     if(b.id==="sAuto"){const at=autoTargets({weight:$("#sW").value,goal:$("#sGoal").value});for(const k in at)$("#st_"+k).value=at[k]}
@@ -813,13 +835,276 @@ function openSettings(){
   };
 }
 
+/* ================= DAILY TIP ================= */
+const TIPS=[
+["اشرب كاسة مي أول ما تصحى — جسمك صايم مي طول الليل.","Drink a glass of water as soon as you wake up — your body has gone all night without it."],
+["البروتين بكل وجبة، مش بس بالعشا. وزّعه على 3–4 وجبات.","Get protein in every meal, not just dinner. Spread it over 3–4 meals."],
+["النوم 7–9 ساعات أهم مكمّل غذائي بالعالم، وهو ببلاش.","7–9 hours of sleep is the best supplement in the world — and it's free."],
+["سجّل أوزانك كل حصة. اللي ما بينقاس ما بيتحسن.","Log your weights every session. What doesn't get measured doesn't improve."],
+["التكنيك قبل الوزن. ارفع وزن بتقدر تتحكم فيه بالنزول.","Technique before weight. Lift what you can control on the way down."],
+["امشِ 8–10 آلاف خطوة باليوم — بتحرق دهون بدون ما تتعب عضلك.","Walk 8–10k steps a day — it burns fat without wearing out your muscles."],
+["الإحماء مش مضيعة وقت. 5 دقايق بتحميك من إصابة بتوقفك شهر.","Warming up isn't wasted time. 5 minutes protects you from an injury that stops you for a month."],
+["الخضار بكل صحن: ألياف، شبع أكتر، وسعرات أقل.","Vegetables on every plate: more fibre, more fullness, fewer calories."],
+["ما تقارن حالك بغيرك. قارن حالك فيك من شهر.","Don't compare yourself to others. Compare yourself to you a month ago."],
+["خفّف المشروبات الغازية والعصائر — سعرات بتنشرب بدون ما تشبّعك.","Cut down on soft drinks and juice — liquid calories that don't fill you up."],
+["الراحة بين الـ Sets مهمة: 60–90 ثانية للعضلات الصغيرة و2–3 دقايق للتمارين الكبيرة.","Rest matters: 60–90 s for small muscles, 2–3 min for big lifts."],
+["التزامك 80% من الوقت أحسن من مثالية أسبوع وبعدين توقف.","Being consistent 80% of the time beats one perfect week followed by quitting."],
+["كُل ببطء — دماغك بيحتاج 20 دقيقة ليعرف إنك شبعت.","Eat slowly — your brain needs 20 minutes to realise you're full."],
+["زيد الوزن أو التكرار شوي كل أسبوع — هيك العضل بيكبر.","Add a little weight or a rep every week — that's how muscle grows."],
+["جهّز أكلك من الليل إذا يومك مشغول — الجوع مع قلة التحضير = أكل سريع.","Prep your food the night before on busy days — hunger plus no plan means fast food."],
+["البيض من أرخص وأحسن مصادر البروتين.","Eggs are one of the cheapest, best sources of protein."],
+["إذا ما إلك خلق تتمرن، اتفق مع حالك على 10 دقايق بس. غالباً رح تكمّل.","Not in the mood? Promise yourself just 10 minutes. You'll usually keep going."],
+["تمطّط بعد التمرين — بيساعد العضل يرتاح وبيحسّن المرونة.","Stretch after training — it helps muscles relax and improves flexibility."],
+["الوزن بيتغيّر يومياً بسبب المي والملح. شوف المعدل الأسبوعي مش رقم يوم واحد.","Scale weight changes daily from water and salt. Watch the weekly average, not one day."],
+["الكارب مش عدوّك — هو وقود التمرين. اختار رز، شوفان، بطاطا، خبز أسمر.","Carbs aren't the enemy — they fuel training. Pick rice, oats, potatoes, brown bread."],
+["ثبّت بطنك (Brace) بكل تمرين حر — بيحمي ظهرك.","Brace your core on every free-weight lift — it protects your back."],
+["الشاي والقهوة بعد الأكل مباشرة بيقللوا امتصاص الحديد. استنى ساعة.","Tea and coffee right after meals reduce iron absorption. Wait an hour."],
+["اللبن واللبنة بروتين ممتاز وبيساعدوا الهضم.","Yogurt and labneh are great protein and help digestion."],
+["التنفس: شهيق بالنزول، زفير بالدفع.","Breathing: inhale on the way down, exhale as you push."],
+["ما في تمرين بيحرق دهون البطن بالذات. الأكل والحركة بينزّلوا الدهون من كل الجسم.","No exercise burns belly fat specifically. Diet and movement lower fat everywhere."],
+["أيام الراحة جزء من البرنامج — العضل بيكبر وقت الراحة.","Rest days are part of the programme — muscle grows while you rest."],
+["حط هدف صغير لهالأسبوع: مثلاً 4 حصص و2 لتر مي يومياً.","Set a small goal this week: e.g. 4 sessions and 2 litres of water a day."],
+["التمر قبل التمرين بنص ساعة طاقة سريعة وطبيعية.","Dates 30 minutes before training are quick, natural energy."],
+["الملح الزايد بيحبس مي بجسمك وبيرفع الضغط. خفّف المخللات والشيبس.","Too much salt holds water and raises blood pressure. Go easy on pickles and chips."],
+["صوّر حالك كل شهر — الصور بتبيّن تغيير ما بيبيّنه الميزان.","Take a photo each month — photos show changes the scale doesn't."],
+["لا تتمرن لحد الفشل بكل Set. خلّي تكرار أو تنين بالخزان.","Don't train to failure every set. Leave a rep or two in the tank."],
+["المكسرات صحية بس سعراتها عالية — حفنة وحدة كفاية.","Nuts are healthy but calorie-dense — one handful is enough."],
+["إذا رحت عزيمة، ابدأ بالسلطة والبروتين وبعدين الباقي.","At a big meal, start with salad and protein, then the rest."],
+["الموسيقى الحماسية بترفع أداءك بالتمرين — جرّب تبويب الصوتيات.","Upbeat music boosts your performance — try the Audio tab."],
+["الكرياتين من أكثر المكملات المدروسة والآمنة — 3–5غ يومياً إذا بدك.","Creatine is one of the most studied, safe supplements — 3–5 g a day if you want."],
+["الجلوس الطويل بيضر ظهرك. قوم تحرّك كل ساعة دقيقتين.","Long sitting hurts your back. Get up and move for 2 minutes every hour."],
+["إذا حسيت بألم حاد (مش تعب عضل) وقّف فوراً.","If you feel sharp pain (not muscle fatigue), stop immediately."],
+["الفطور مش إجباري — المهم مجموع أكلك وبروتينك باليوم.","Breakfast isn't mandatory — what matters is your total food and protein for the day."],
+["شوفان + موز + بروتين = فطور مثالي قبل التمرين.","Oats + banana + protein = a perfect pre-workout breakfast."],
+["كل ما زادت عضلاتك، زاد حرقك وانت مرتاح.","The more muscle you have, the more you burn at rest."],
+["خلي جزمة التمرين مريحة وثابتة — خاصة بيوم الرجل.","Wear stable, comfortable shoes — especially on leg day."],
+["اشرب 500 مل مي خلال التمرين، وأكتر إذا الجو حار.","Drink 500 ml of water during training, more if it's hot."],
+["التحسن مش خط مستقيم. في أسابيع ثبات وهذا طبيعي.","Progress isn't a straight line. Plateau weeks are normal."],
+["كُل فاكهة بدل الحلو — حلاوة مع ألياف وفيتامينات.","Eat fruit instead of sweets — sweetness with fibre and vitamins."],
+["قبل النوم: لبن أو جبنة قريش — بروتين بطيء للعضل طول الليل.","Before bed: yogurt or cottage cheese — slow protein for overnight recovery."],
+["ركّز بالعضلة اللي عم تشتغل (Mind-muscle connection) — بتفرق بالنتيجة.","Focus on the working muscle (mind-muscle connection) — it makes a difference."],
+["ارفع ببطء ونزّل أبطأ — النزول البطيء بيبني عضل أكتر.","Lift with control and lower slower — slow negatives build more muscle."],
+["إذا فوّت حصة، ما تعوّضها بحصتين. كمّل البرنامج عادي.","Missed a session? Don't double up. Just carry on with the programme."],
+["الصيام المتقطع ممكن يساعد بتنظيم الأكل، بس المهم السعرات والبروتين.","Intermittent fasting can help structure eating, but calories and protein matter most."],
+["خلّي هدفك واضح ومكتوب — بتلتزم أكتر.","Write your goal down clearly — you'll stick to it more."],
+["الضغط والتوتر بيرفعوا الكورتيزول وبيصعّبوا نزول الدهون. تنفّس، امشِ، نام منيح.","Stress raises cortisol and makes fat loss harder. Breathe, walk, sleep well."],
+["زيت الزيتون صحي بس ملعقة = 120 سعرة. قيس ما تكب.","Olive oil is healthy but 1 tbsp = 120 kcal. Measure, don't pour."],
+["تمرين الرجل ما بتتجاوزه — أكبر عضلات بجسمك وبترفع الحرق.","Never skip leg day — your biggest muscles, and they boost metabolism."],
+["إذا بدك تنزل وزن: نزول 0.5–1 كغ بالأسبوع هو المعدل الصحي.","For fat loss, 0.5–1 kg a week is a healthy rate."],
+["احتفل بالإنجازات الصغيرة — كل رقم جديد خطوة لقدّام.","Celebrate small wins — every new best is a step forward."],
+["الأكل المقلي بيضاعف السعرات. جرّب المشوي أو الإير فراير.","Fried food doubles the calories. Try grilled or air-fried."],
+["قبل ما تفتح السناك، اسأل حالك: جوعان ولا زهقان؟","Before a snack, ask yourself: hungry or bored?"],
+["الاستمرارية بتغلب الحماس. الحماس بيروح، العادة بتضل.","Consistency beats motivation. Motivation fades, habits stay."],
+["اليوم يوم جديد — أحسن وقت تبدأ فيه هو هلأ. 💪","Today is a new day — the best time to start is now. 💪"],
+["ابتسم وانت عم تتمرن — التمرين هدية لجسمك مش عقاب.","Smile while you train — exercise is a gift to your body, not a punishment."]
+];
+const dayNo=()=>Math.floor((new Date(dkey()).getTime())/864e5);
+const tipToday=()=>TIPS[dayNo()%TIPS.length];
+function maybeTip(){let seen=null;try{seen=localStorage.getItem(LK+":tip")}catch(e){}if(seen===dkey()||!SE.hidden)return;try{localStorage.setItem(LK+":tip",dkey())}catch(e){}
+  const p=S.profile,nd=DAYS[nextDayId()-1];
+  modal(`<div class="tiph"><span class="tipi">${ICON.bulb}</span><div><div class="tiny">${t("tipT")} · ${fmtD(Date.now())}</div><h2 style="margin:2px 0 0">${t("hello",{n:esc(p.name)})}</h2></div></div><p class="tipx">${esc(tr(tipToday()))}</p><p class="small mute">${t("nextUp")}: <b>${t("dayN",{n:nd.id})} — ${esc(tr(nd.n))}</b></p><button class="btn pri wide" id="tipGo">${t("tipGo")}</button>`);
+  $("#tipGo").onclick=()=>{tapSfx();closeModal()}}
+
+/* ================= SOUNDS ================= */
+const sfxOn=()=>!S.profile||S.profile.sfx!==false;
+function tone(f,t0,len,vol,type,f2){const o=AC.createOscillator(),g=AC.createGain();o.type=type||"sine";o.frequency.setValueAtTime(f,t0);if(f2)o.frequency.exponentialRampToValueAtTime(f2,t0+len*0.6);o.connect(g);g.connect(AC.destination);g.gain.setValueAtTime(0.0001,t0);g.gain.exponentialRampToValueAtTime(vol,t0+0.012);g.gain.exponentialRampToValueAtTime(0.0001,t0+len);o.start(t0);o.stop(t0+len+0.02)}
+function tapSfx(){if(!sfxOn())return;unlockAudio();try{const t0=AC.currentTime+0.01;tone(620,t0,0.09,0.16,"sine",930);tone(1240,t0+0.045,0.08,0.05,"triangle")}catch(e){}}
+function winSfx(){if(!sfxOn())return;unlockAudio();try{const t0=AC.currentTime+0.05;
+  [[523,0],[659,0.11],[784,0.22],[1047,0.33],[784,0.5],[1047,0.6]].forEach(([f,d],i,a)=>tone(f,t0+d,i===a.length-1?1.1:0.16,0.3,"triangle"));
+  [262,523,659,784].forEach(f=>tone(f,t0+0.6,1.2,0.09,"sawtooth"));
+  [0,0.22,0.5,0.6].forEach(d=>tone(150,t0+d,0.14,0.35,"sine",50));
+  setTimeout(()=>{try{if(!window.speechSynthesis)return;const u=new SpeechSynthesisUtterance(tr(["عاش يا بطل! تمرين قوي","Great job, champ! Strong workout!"]));u.lang=L()==="ar"?"ar-SA":"en-US";u.rate=1.05;u.pitch=1.1;speechSynthesis.speak(u)}catch(e){}},1700)}catch(e){}
+  try{navigator.vibrate&&navigator.vibrate([80,60,80,60,220])}catch(e){}}
+document.addEventListener("click",e=>{if(e.target.closest(".tabs button,#gear,#coachBtn,.btn.pri,[data-start],[data-mt],[data-exi]"))tapSfx()},true);
+
+/* ================= OFFLINE COACH ================= */
+const QS=["q1","q2","q3","q4","q5","q6"];
+function progressReport(){const now=Date.now(),D=864e5,ss=S.sessions.filter(s=>!s.rest&&s.ex);
+  if(!ss.length)return tr(["لسا ما سجّلت ولا حصة. ابدأ أول تمرين من تبويب التمرين، وبعدها بحللك تطورك بالأرقام.","No sessions logged yet. Start your first workout from the Train tab and I'll analyse your progress."]);
+  const w1=ss.filter(s=>now-s.start<7*D),w2=ss.filter(s=>now-s.start>=7*D&&now-s.start<14*D);
+  const v1=w1.reduce((a,s)=>a+sessVolume(s),0),v2=w2.reduce((a,s)=>a+sessVolume(s),0),o=[];
+  o.push(tr([`📅 آخر 7 أيام: ${w1.length} حصص (الأسبوع اللي قبله: ${w2.length}).`,`📅 Last 7 days: ${w1.length} sessions (week before: ${w2.length}).`]));
+  if(v2>0){const pc=Math.round((v1-v2)/v2*100);o.push(tr([`🏋️ حجم التمرين ${pc>=0?"زاد":"نقص"} ${Math.abs(pc)}% عن الأسبوع اللي قبله.`,`🏋️ Training volume ${pc>=0?"up":"down"} ${Math.abs(pc)}% vs the week before.`]))}
+  const imp=[];for(const k in EXD){const pts=[];ss.filter(s=>now-s.start<30*D).forEach(s=>{const ds=((s.ex[k]&&s.ex[k].sets)||[]).filter(x=>x.done&&+x.w);if(ds.length)pts.push(Math.max(...ds.map(x=>+x.w)))});if(pts.length>=2&&pts[pts.length-1]>pts[0])imp.push(`${EXD[k].n} ${pts[0]}→${pts[pts.length-1]}`)}
+  if(imp.length)o.push(tr(["📈 أوزانك زادت بـ: ","📈 Your weights went up on: "])+imp.slice(0,4).join("، "));
+  const b=S.body.filter(x=>+x.weight).slice().sort((a,c)=>String(a.date).localeCompare(String(c.date)));
+  if(b.length>=2){const d=+(b[b.length-1].weight-b[0].weight).toFixed(1);o.push(tr([`⚖️ وزنك من أول قياس: ${d>0?"+":""}${d} كغ.`,`⚖️ Weight since your first entry: ${d>0?"+":""}${d} kg.`]))}
+  const hard=ss.slice(-3).filter(s=>s.feel==="hard").length;if(hard>=2)o.push(tr(["😮‍💨 آخر حصصك كانت صعبة — ركّز عالنوم والأكل، وإذا ضلّت صعبة خفف الأوزان 10%.","😮‍💨 Recent sessions felt hard — prioritise sleep and food; if it continues, drop weights 10%."]));
+  o.push(w1.length>=4?tr(["✅ التزامك ممتاز — كمّل هيك!","✅ Great consistency — keep it up!"]):tr(["🎯 حاول توصل 4–5 حصص بالأسبوع لنتيجة أسرع.","🎯 Aim for 4–5 sessions a week for faster results."]));
+  return o.join("\n")}
+function foodReport(){const f=foodTotals(dkey()),tg=S.profile.targets||autoTargets(S.profile),o=[];
+  if(!f.kcal)return tr(["لسا ما سجّلت أكل اليوم. سجّل وجباتك بتبويب الأكل، أو خذ اقتراحات جاهزة من تبويب الوجبات.","No food logged today. Log meals in the Food tab or grab ideas from the Meals tab."]);
+  o.push(tr([`🔥 السعرات: ${Math.round(f.kcal)} من ${tg.kcal}.`,`🔥 Calories: ${Math.round(f.kcal)} of ${tg.kcal}.`]));
+  const pm=tg.protein-f.protein;o.push(pm>tg.protein*0.15?tr([`🍗 ناقصك حوالي ${Math.round(pm)}غ بروتين — جرّب: صدر دجاج، تونة، بيض، لبن، أو سكوب بروتين.`,`🍗 You're about ${Math.round(pm)} g short on protein — try chicken breast, tuna, eggs, yogurt or a protein scoop.`]):tr(["✅ البروتين ممتاز اليوم.","✅ Protein is on point today."]));
+  if(f.fiber<(tg.fiber||30)*0.7)o.push(tr(["🥗 الألياف قليلة — زيد سلطة، فواكه، شوفان أو عدس.","🥗 Fibre is low — add salad, fruit, oats or lentils."]));
+  if(f.kcal>tg.kcal*1.08)o.push(tr([`⚠️ زدت ${Math.round(f.kcal-tg.kcal)} سعرة عن هدفك — مش مشكلة، بكرا ارجع عالخطة وامشِ شوي زيادة.`,`⚠️ You're ${Math.round(f.kcal-tg.kcal)} kcal over — no big deal; back on plan tomorrow and walk a bit more.`]));
+  else if(f.kcal<tg.kcal*0.6&&new Date().getHours()>=18)o.push(tr(["⚠️ أكلك قليل كتير اليوم — الحرمان بيوقف تقدّمك وبيضعف التمرين. كُل وجبة متوازنة.","⚠️ You've eaten very little today — undereating stalls progress. Have a balanced meal."]));
+  return o.join("\n")}
+function coachReply(q){const n=" "+fnorm(q)+" ",has=(...w)=>w.some(x=>n.includes(fnorm(x)));const p=S.profile,tg=p.targets||autoTargets(p),A=(ar,en)=>tr([ar,en]);
+  if(has("الم ","الم حاد","وجع مفصل","اصابه","اصابة","دوخه","دوخة","pain","injur","dizz"))return A("⚠️ إذا الألم حاد أو بالمفصل، أو في دوخة — وقّف التمرين وراجع طبيب أو أخصائي علاج طبيعي.\nأما وجع العضل بعد التمرين بيوم أو يومين (DOMS) فطبيعي: حركة خفيفة، مي، نوم، وبروتين كفاية.","⚠️ Sharp or joint pain, or dizziness — stop and see a doctor or physio.\nMuscle soreness 1–2 days after training (DOMS) is normal: light movement, water, sleep and enough protein.");
+  if(has("تطور","تحليل","تقدم","حلل","progress","analy"))return progressReport();
+  if(has("تمريني","تمرين اليوم","شو اتمرن","workout today","today's workout"))
+    {const nd=DAYS[nextDayId()-1];return nd.rest?A("😴 اليوم يوم راحة. مشي خفيف 20–30 دقيقة إذا بدك، ونوم منيح.","😴 Today is a rest day. An easy 20–30 min walk if you like, and good sleep."):A(`💪 تمرينك الجاي: يوم ${nd.id} — ${tr(nd.n)} (${tr(nd.d)}).\nالتمارين: ${nd.ex.map(k=>EXD[k].n).join("، ")}.\nمدته حوالي ${nd.min} دقيقة. يلا!`,`💪 Up next: Day ${nd.id} — ${tr(nd.n)} (${tr(nd.d)}).\nExercises: ${nd.ex.map(k=>EXD[k].n).join(", ")}.\nAbout ${nd.min} min. Let's go!`)}
+  if(has("قبل التمرين","before","pre-workout","pre workout"))return A("🍌 قبل التمرين بـ 1–2 ساعة: كارب + بروتين خفيف، مثلاً:\n- شوفان مع موزة وسكوب بروتين\n- رغيف خبز أسمر مع لبنة أو بيض\n- 3 تمرات ولبن (إذا الوقت قصير، قبل 30 دقيقة)\nابعد عن الأكل الدهني والمقلي قبل التمرين.","🍌 1–2 hours before: carbs + light protein, e.g.\n- Oats with banana and a protein scoop\n- Brown pita with labneh or eggs\n- 3 dates and yogurt (30 min before if short on time)\nAvoid greasy, fried food before training.");
+  if(has("بعد التمرين","after","post-workout","post workout"))return A(`🍗 بعد التمرين خلال 1–2 ساعة: وجبة فيها 30–40غ بروتين + كارب.\nمثلاً: صدر دجاج مع رز وسلطة، أو تونة مع خبز أسمر، أو سكوب بروتين مع موزة.\nهدفك اليوم ${tg.protein}غ بروتين.`,`🍗 Within 1–2 hours after: a meal with 30–40 g protein + carbs.\nE.g. chicken breast with rice and salad, tuna with brown bread, or a protein shake with a banana.\nToday's target: ${tg.protein} g protein.`);
+  if(has("شو اكل","شو بدي اكل","اقترح","وجبه","وجبة","فطور","غدا","عشا","سناك","meal","breakfast","lunch","dinner","snack","what should i eat","suggest"))
+    {const mp=mealPlan();return A("🍽️ اقتراحات اليوم حسب وزنك:\n","🍽️ Today's ideas for your weight:\n")+mp.map(m=>`- ${t(m.lbl)}: ${m.items.map(x=>tr(FOODS[x.i].n).replace(/ \(.+\)/,"")).join(" + ")} (${Math.round(m.k)} ${t("kcalU")})`).join("\n")+A("\nالتفاصيل بتبويب الوجبات.","\nDetails in the Meals tab.")}
+  if(has("راجع اكل","راجع","اكلي","اكل اليوم","review","my food"))return foodReport();
+  if(has("تعب","بتعب","طاقه","طاقة","ارهاق","tired","fatigue","energy"))return A("😮‍💨 إذا بتتعب بسرعة:\n- نام 7–9 ساعات\n- كُل كارب قبل التمرين بساعة أو ساعتين (شوفان، تمر، موز)\n- اشرب مي طول اليوم (2–3 لتر)\n- طوّل الراحة بين الـ Sets لـ 90–120 ثانية\n- إذا ضل التعب، خفف الأوزان 10% لأسبوع\nوإذا التعب غريب أو مستمر، اعمل فحص دم (حديد، فيتامين D).","😮‍💨 If you tire quickly:\n- Sleep 7–9 hours\n- Eat carbs 1–2 h before training (oats, dates, banana)\n- Drink 2–3 L of water a day\n- Rest 90–120 s between sets\n- If it persists, drop weights 10% for a week\nIf fatigue is unusual or ongoing, get blood work (iron, vitamin D).");
+  if(has("نوم","انام","sleep"))return A("😴 النوم أهم شي للعضل ونزول الدهون:\n- 7–9 ساعات وبنفس الوقت كل يوم\n- لا كافيين بعد العصر\n- خفف الجوال قبل النوم بنص ساعة\n- غرفة باردة وعتمة","😴 Sleep drives muscle and fat loss:\n- 7–9 hours at a consistent time\n- No caffeine after mid-afternoon\n- Put the phone down 30 min before bed\n- Cool, dark room");
+  if(has("ثبات","ثابت","ما بنزل","ما عم ينزل","وقف الوزن","plateau","stuck"))return A("📉 لكسر الثبات:\n- تأكد إنك بتسجّل كل أكلك (حتى الزيت والمشروبات)\n- قارن معدل الوزن الأسبوعي مش اليومي\n- زيد مشيك 2000 خطوة باليوم\n- نزّل 100–200 سعرة من هدفك اليومي\n- خلي البروتين عالي ونوم كفاية\nالثبات أسبوعين طبيعي — لا تيأس.","📉 To break a plateau:\n- Log everything (even oil and drinks)\n- Compare weekly averages, not daily weigh-ins\n- Add 2,000 steps a day\n- Cut 100–200 kcal from your target\n- Keep protein high and sleep enough\nA two-week stall is normal — don't give up.");
+  if(has("بروتين","protein"))return A(`🥚 هدفك ${tg.protein}غ بروتين باليوم (حوالي 1.8غ لكل كيلو). وزّعه على 3–4 وجبات.\nمصادر سهلة: صدر دجاج (47غ)، تونة علبة (26غ)، بيضتين (12غ)، لبن كاسة (8غ)، سكوب بروتين (24غ).`,`🥚 Your target is ${tg.protein} g of protein a day (~1.8 g/kg). Spread it over 3–4 meals.\nEasy sources: chicken breast (47 g), tin of tuna (26 g), 2 eggs (12 g), cup of yogurt (8 g), protein scoop (24 g).`);
+  if(has("مي ","ماء","مويه","شرب","water","hydrat"))return A("💧 اشرب حوالي 35 مل لكل كيلو من وزنك يومياً، وزيد 500–750 مل بيوم التمرين أو الجو الحار. لون البول الفاتح علامة إنك شارب كفاية.","💧 Drink about 35 ml per kg of body weight daily, plus 500–750 ml on training days or in hot weather. Pale urine means you're well hydrated.");
+  if(has("كرياتين","مكمل","مكملات","creatine","supplement"))return A("💊 المكملات مش ضرورية، الأكل أولاً. المفيد والمدروس:\n- كرياتين 3–5غ يومياً (أي وقت)\n- بروتين باودر إذا ما بتوصل لهدفك من الأكل\n- فيتامين D إذا عندك نقص (بعد فحص)\nاستشر طبيب إذا عندك أي حالة صحية.","💊 Supplements are optional — food first. Well-studied ones:\n- Creatine 3–5 g daily (any time)\n- Protein powder if food doesn't reach your target\n- Vitamin D if you're deficient (after a test)\nAsk a doctor if you have any health condition.");
+  if(has("كارديو","جري","ركض","cardio","run"))return A("🏃 الكارديو بالبرنامج موجود بعد كل حصة. للنتيجة الأحسن:\n- Zone 2 (بتقدر تحكي جمل قصيرة) 20–30 دقيقة\n- HIIT مرة أو مرتين بالأسبوع بس\n- والمشي اليومي 8–10 آلاف خطوة أهم من كارديو طويل","🏃 Cardio is built in after each session. Best results:\n- Zone 2 (can speak short sentences) 20–30 min\n- HIIT only 1–2× a week\n- Daily 8–10k steps matter more than long cardio");
+  if(has("كسل","ملل","زهقان","حماس","مش قادر","motivat","lazy","bored"))return A("🔥 الحماس بيروح ويجي، العادة هي اللي بتوصلك.\n- اتفق مع حالك على 10 دقايق بس — غالباً رح تكمّل\n- شغّل موسيقى حماسية من تبويب الصوتيات\n- شوف أرقامك بتبويب التطور وتذكّر من وين بلشت\nيلا يا بطل، حصة وحدة اليوم أحسن من صفر! 💪","🔥 Motivation comes and goes; habits get you there.\n- Commit to just 10 minutes — you'll usually continue\n- Put on hype music from the Audio tab\n- Check your Progress tab and remember where you started\nOne session today beats zero! 💪");
+  if(has("تنشيف","نزول","انزل","دهون","كرش","lose","fat","cut"))return A(`🔥 لنزول الدهون:\n- سعراتك حوالي ${tg.kcal} باليوم وبروتين ${tg.protein}غ\n- نزول 0.5–1 كغ بالأسبوع هو الصحي\n- كمّل تمرين الحديد لتحافظ على عضلك\n- مشي يومي وخضار بكل وجبة\n- خفف المقالي والسكريات والمشروبات الغازية`,`🔥 For fat loss:\n- About ${tg.kcal} kcal and ${tg.protein} g protein a day\n- 0.5–1 kg per week is healthy\n- Keep lifting to preserve muscle\n- Daily walking and veggies at every meal\n- Cut fried food, sweets and soft drinks`);
+  if(has("تضخيم","عضل","اكبر","bulk","muscle","gain"))return A(`💪 لبناء العضل:\n- كُل فائض بسيط (200–300 سعرة فوق الحرق)\n- بروتين ${tg.protein}غ يومياً\n- زيد الوزن أو التكرار كل أسبوع (التطبيق بيقترحلك)\n- نوم 8 ساعات\n- اصبر — العضل بياخد شهور`,`💪 To build muscle:\n- Small surplus (200–300 kcal above maintenance)\n- ${tg.protein} g protein daily\n- Add weight or reps weekly (the app suggests it)\n- 8 hours of sleep\n- Be patient — muscle takes months`);
+  if(has("مرحبا","هلا","اهلا","السلام","صباح","مسا","hello","hi ","hey"))return A(`أهلين ${p.name}! 👋\nنصيحة اليوم: ${tr(tipToday())}\nاسألني عن تمرينك، أكلك، تطورك، النوم أو أي شي.`,`Hey ${p.name}! 👋\nToday's tip: ${tr(tipToday())}\nAsk me about your training, food, progress, sleep — anything.`);
+  if(has("شكرا","يسلمو","تسلم","thank"))return A("العفو يا بطل! 💪 أنا هون أي وقت.","Anytime, champ! 💪");
+  return A(`ما فهمت سؤالك تماماً 🙂 بقدر أساعدك بـ:\n- تحليل تطورك\n- مراجعة أكلك اليوم\n- شو تاكل قبل/بعد التمرين\n- التعب، النوم، الثبات بالوزن\n- البروتين، المي، المكملات\n- نزول الدهون أو بناء العضل\n\nنصيحة اليوم: ${tr(tipToday())}`,`I didn't quite get that 🙂 I can help with:\n- Analysing your progress\n- Reviewing today's food\n- What to eat before/after training\n- Fatigue, sleep, plateaus\n- Protein, water, supplements\n- Fat loss or muscle gain\n\nToday's tip: ${tr(tipToday())}`)}
+function renderCoach(){
+  const v=$("#view");
+  let h=`<div class="row between"><h1>${t("coachT")}</h1>${S.chat.length?`<button class="btn ghost" id="cClr">${t("clearChat")}</button>`:""}</div>`;
+  h+=`<div class="card tipc"><span class="tipi">${ICON.bulb}</span><div><div class="tiny">${t("tipT")}</div><div class="small">${esc(tr(tipToday()))}</div></div></div>`;
+  h+=`<div class="msgs" id="msgs"><div class="msg a">${esc(t("coachHello"))}</div>${S.chat.map(m=>`<div class="msg ${m.role==="user"?"u":"a"}">${esc(m.content)}</div>`).join("")}</div>`;
+  h+=`<div class="row" style="flex-wrap:wrap">${QS.map(q=>`<button class="chip" data-q="${q}" style="min-height:40px">${t(q)}</button>`).join("")}</div>`;
+  h+=`<form class="chat-in" id="cf"><textarea class="in" id="cq" placeholder="${t("ask")}"></textarea><button class="btn pri" ${BUSY?"disabled":""}>${t("send")}</button></form>`;
+  v.innerHTML=h;window.scrollTo(0,document.body.scrollHeight);
+  $("#cf").onsubmit=e=>{e.preventDefault();ask($("#cq").value.trim())};
+  v.onclick=e=>{const b=e.target.closest("button");if(!b)return;if(b.dataset.q)ask(t(b.dataset.q));if(b.id==="cClr"){S.chat=[];saveChat();renderCoach()}};
+}
+function ask(q){if(!q||BUSY)return;BUSY=true;S.chat.push({role:"user",content:q});renderCoach();
+  const box=document.createElement("div");box.className="msg a";box.textContent=t("thinking");$("#msgs").appendChild(box);window.scrollTo(0,document.body.scrollHeight);
+  setTimeout(()=>{const r=coachReply(q);S.chat.push({role:"assistant",content:r});S.chat=S.chat.slice(-40);saveChat();BUSY=false;if(TAB==="coach")renderCoach()},450)}
+function sessionFeedback(ses,prs){const o=[],up=[],low=[];
+  for(const k in ses.ex){const X=EXD[k];if(!X)continue;const ds=ses.ex[k].sets.filter(s=>s.done);if(!ds.length)continue;if(ds.every(s=>(+s.r||0)>=X.r[1]))up.push(X.n);else if(ds.some(s=>(+s.r||0)<X.r[0]))low.push(X.n)}
+  if(prs)o.push(tr([`🔥 كسرت ${prs} رقم قياسي اليوم — شغل نظيف!`,`🔥 ${prs} new best(s) today — great work!`]));
+  if(up.length)o.push(tr(["⬆️ وصلت للهدف — المرة الجاية زيد الوزن بـ: ","⬆️ You hit the top — add weight next time on: "])+up.join("، "));
+  if(low.length)o.push(tr(["⬇️ هدول كانوا تقال — خفف شوي وركّز عالتكنيك: ","⬇️ These were heavy — go a bit lighter and focus on form: "])+low.join("، "));
+  if(ses.feel==="hard"||(+ses.rpe||0)>=9)o.push(tr(["😮‍💨 الحصة كانت صعبة — نام 8 ساعات الليلة واشرب مي كتير.","😮‍💨 Tough session — aim for 8 hours of sleep and plenty of water."]));
+  else if(ses.feel==="easy")o.push(tr(["💪 كانت سهلة؟ إذا ضلّت سهلة 3 حصص بنرفع المستوى.","💪 Felt easy? If it stays easy for 3 sessions we'll level you up."]));
+  const tg=S.profile.targets||autoTargets(S.profile);o.push(tr([`🍗 خلال ساعتين كُل وجبة فيها 30–40غ بروتين وكارب (هدفك اليوم ${tg.protein}غ بروتين).`,`🍗 Within 2 hours eat 30–40 g protein plus carbs (today's target: ${tg.protein} g protein).`]));
+  return o.join("\n")}
+
+/* ================= MEAL IDEAS ================= */
+const fi=a=>{const i=FOODS.findIndex(f=>f.a.includes(a));if(i<0)throw new Error("food "+a);return i};
+const MEALT={
+ b:[[["بيض",2],["خبز اسمر",1],["لبنه",1],["سلطه",0.5]],[["شوفان",1.5],["موز",1],["بروتين",1],["مكسرات",0.5]],[["فول",1],["خبز",1],["بيض",1],["سلطه",0.5]],[["لبن",1],["شوفان",1],["عسل",1],["فراوله",1]],[["عجه",1],["توست",2],["جبنه",1],["سلطه",0.5]],[["حمص",0.7],["بيض",2],["خبز اسمر",1]],[["منقوشه",1],["لبن",1],["بيض",1]],[["توست",2],["زبده فول سوداني",1],["موز",1],["حليب",1]],[["بيض",3],["جبنه",1],["خبز اسمر",1],["تمر",2]]],
+ l:[[["صدر دجاج",1],["رز",1],["سلطه",1]],[["كبسه",0.8],["سلطه",1],["لبن",1]],[["شيش",2],["خبز اسمر",1],["حمص",0.5],["سلطه",1]],[["سمك",1],["رز",1],["سلطه",1]],[["ستيك",1],["بطاطا",1],["سلطه",1]],[["مجدره",1],["لبن",1],["سلطه",1]],[["معكرونه",1],["مفروم",1],["سلطه",1]],[["ملوخيه",1],["رز",1],["صدر دجاج",0.5]],[["منسف",0.7],["سلطه",1]],[["كباب",2],["برغل",1],["تبوله",1]],[["سلمون",1],["رز",1],["سلطه",1]]],
+ d:[[["تونه",1],["خبز اسمر",1],["سلطه",1]],[["بيض",2],["جبنه",1],["خبز",1],["سلطه",0.5]],[["صدر دجاج",1],["بطاطا",1],["سلطه",1]],[["لبن",1],["شوفان",1],["تمر",3]],[["عدس",1],["بيض",1],["سلطه",1]],[["سلمون",1],["سلطه",1],["خبز اسمر",0.5]],[["شيش",2],["فتوش",1]],[["فول",1],["بيض",1],["سلطه",1]],[["لبنه",2],["خبز اسمر",1],["بيض",2]]],
+ s:[[["موز",1],["بروتين",1]],[["تمر",3],["مكسرات",1]],[["تفاح",1],["زبده فول سوداني",1]],[["لبن",1],["فراوله",1]],[["بروتين",1],["حليب",1]],[["برتقال",1],["جبنه",1]],[["بيض",2]],[["عنب",1],["مكسرات",0.5]],[["لبن",1],["عسل",1]]]};
+const MSH={b:0.25,l:0.35,d:0.25,s:0.15},MLB={b:"mB",l:"mL",d:"mD",s:"mS"};
+const hsh=s=>{let h=2166136261;for(const c of s){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0};
+function mSwaps(){try{const o=JSON.parse(localStorage.getItem(LK+":msw"));if(o&&o.d===dkey())return o.s}catch(e){}return {b:0,l:0,d:0,s:0}}
+function mealPlan(){const tg=S.profile.targets||autoTargets(S.profile),sw=mSwaps();
+  return ["b","l","d","s"].map(k=>{const L=MEALT[k],tpl=L[(hsh(dkey()+k)+(sw[k]||0))%L.length];
+    const base=tpl.reduce((a,[al,q])=>a+FOODS[fi(al)].k*q,0),want=tg.kcal*MSH[k];
+    const f=Math.min(2.5,Math.max(0.5,Math.round(want/base*4)/4));
+    const items=tpl.map(([al,q])=>({i:fi(al),q:Math.max(0.5,Math.round(q*f*2)/2)}));
+    const sum=x=>items.reduce((a,it)=>a+FOODS[it.i][x]*it.q,0);
+    return {key:k,lbl:MLB[k],items,k:sum("k"),p:sum("p"),c:sum("c"),f:sum("f"),want}})}
+function renderMeals(){const v=$("#view"),p=S.profile,tg=p.targets||autoTargets(p),mp=mealPlan();
+  const tot=mp.reduce((a,m)=>a+m.k,0),tp=mp.reduce((a,m)=>a+m.p,0);
+  let h=`<h1>${t("mealsT")}</h1><p class="small mute" style="margin-top:-6px">${t("mealsSub",{w:p.weight||"—",k:tg.kcal,p:tg.protein})}</p>`;
+  h+=`<div class="grid3"><div class="stat"><b>${Math.round(tot)}</b><span>${t("kcalU")}</span></div><div class="stat"><b>${Math.round(tp)}</b><span>${t("protein")} (${t("gU")})</span></div><div class="stat"><b>${fmtD(Date.now())}</b><span>${t("mNew")}</span></div></div>`;
+  h+=mp.map(m=>`<div class="card meal-s"><div class="row between"><h3 style="margin:0">${t(m.lbl)}</h3><span class="chip acc">${Math.round(m.k)} ${t("kcalU")}</span></div><ul class="mi">${m.items.map(it=>`<li><span>${esc(tr(FOODS[it.i].n))}</span><b>× ${it.q}</b></li>`).join("")}</ul><div class="tiny">P ${Math.round(m.p)} · C ${Math.round(m.c)} · F ${Math.round(m.f)}</div><div class="row" style="margin-top:10px"><button class="btn ghost" data-msw="${m.key}" style="flex:1">${t("swap")}</button><button class="btn ok" data-madd="${m.key}" style="flex:1">${t("addMine")}</button></div></div>`).join("");
+  h+=`<p class="tiny">${t("mNote")}</p>`;
+  v.innerHTML=h;
+  v.onclick=e=>{const b=e.target.closest("button");if(!b)return;
+    if(b.dataset.msw){const s=mSwaps();s[b.dataset.msw]=(s[b.dataset.msw]||0)+1;try{localStorage.setItem(LK+":msw",JSON.stringify({d:dkey(),s}))}catch(x){}tapSfx();return renderMeals()}
+    if(b.dataset.madd){const m=mp.find(x=>x.key===b.dataset.madd);FD=dkey();addMeals([{id:uid(),name:t(m.lbl)+": "+m.items.map(it=>tr(FOODS[it.i].n).replace(/ \(.+\)/,"")+(it.q!==1?" ×"+it.q:"")).join(" + "),kcal:Math.round(m.k),protein:Math.round(m.p),carbs:Math.round(m.c),fiber:Math.round(m.f),t:Date.now()}]);b.disabled=true;b.textContent="✓"}}}
+
+/* ================= AUDIO: music · Quran · podcasts ================= */
+const AUD=new Audio();AUD.preload="none";
+let PL={q:[],i:-1};
+function playQ(q,i){PL={q,i};playCur()}
+function playCur(){const it=PL.q[PL.i];if(!it)return;AUD.src=it.url;AUD.play().catch(()=>{});drawPlayer();mMeta(it);if(TAB==="media")markPlaying()}
+function pAct(a){if(a==="tog"){if(AUD.paused)AUD.play().catch(()=>{});else AUD.pause()}
+  else if(a==="next"){if(PL.i<PL.q.length-1){PL.i++;playCur()}}
+  else if(a==="prev"){if(AUD.currentTime>5||PL.i<=0)AUD.currentTime=0;else{PL.i--;playCur()}}
+  else if(a==="x"){AUD.pause();AUD.removeAttribute("src");AUD.load();PL={q:[],i:-1};drawPlayer();if(TAB==="media")markPlaying()}}
+AUD.addEventListener("ended",()=>{if(PL.i<PL.q.length-1){PL.i++;playCur()}else drawPlayer()});
+AUD.addEventListener("play",()=>drawPlayer());AUD.addEventListener("pause",()=>drawPlayer());
+AUD.addEventListener("error",()=>{if(PL.q[PL.i]&&AUD.getAttribute("src"))toast(t("mErr"))});
+function drawPlayer(){const P=$("#player"),it=PL.q[PL.i];if(!it){P.hidden=true;document.body.classList.remove("hasP");return}
+  P.hidden=false;document.body.classList.add("hasP");
+  P.innerHTML=`${it.art?`<img src="${esc(it.art)}" alt="" onerror="this.remove()">`:`<span class="pi">${ICON.media}</span>`}<div class="pt"><b>${esc(it.t)}</b><small>${esc(it.sub||"")}</small></div><button data-pa="prev" aria-label="prev">${ICON.prev}</button><button data-pa="tog" class="pp" aria-label="play">${AUD.paused?ICON.play:ICON.pause}</button><button data-pa="next" aria-label="next">${ICON.next}</button><button data-pa="x" aria-label="close">${ICON.x}</button>`}
+$("#player").addEventListener("click",e=>{const b=e.target.closest("[data-pa]");if(b)pAct(b.dataset.pa)});
+function mMeta(it){try{if(!("mediaSession" in navigator))return;navigator.mediaSession.metadata=new MediaMetadata({title:it.t,artist:it.sub||"Dweekat Fitness",artwork:[{src:it.art||"icons/icon-512.png",sizes:"512x512"}]});
+  navigator.mediaSession.setActionHandler("nexttrack",()=>pAct("next"));navigator.mediaSession.setActionHandler("previoustrack",()=>pAct("prev"));
+  navigator.mediaSession.setActionHandler("play",()=>pAct("tog"));navigator.mediaSession.setActionHandler("pause",()=>pAct("tog"))}catch(e){}}
+const MC={get(k){try{const o=JSON.parse(localStorage.getItem(LK+":mc:"+k));if(o&&o.d===dkey())return o.v}catch(e){}return null},set(k,v){try{localStorage.setItem(LK+":mc:"+k,JSON.stringify({d:dkey(),v}))}catch(e){}}};
+async function jget(url,ms=9000){const c=new AbortController(),tm=setTimeout(()=>c.abort(),ms);try{const r=await fetch(url,{signal:c.signal});if(!r.ok)throw 0;return await r.json()}finally{clearTimeout(tm)}}
+function jsonp(url,ms=12000){return new Promise((res,rej)=>{const cb="__jp"+Math.random().toString(36).slice(2),s=document.createElement("script");const tm=setTimeout(()=>{clean();rej("timeout")},ms);
+  function clean(){clearTimeout(tm);try{delete window[cb]}catch(e){window[cb]=undefined}s.remove()}window[cb]=d=>{clean();res(d)};s.onerror=()=>{clean();rej("err")};s.src=url+(url.includes("?")?"&":"?")+"callback="+cb;document.head.appendChild(s)})}
+/* music: live internet radio, ranked by listeners today */
+const RTAGS=[["workout",["تمارين","Workout"]],["edm",["حماس EDM","EDM"]],["hip hop",["هيب هوب","Hip-hop"]],["rock",["روك","Rock"]],["arabic",["عربي","Arabic"]],["lofi",["هادي","Chill"]]];
+const RFB=[["Beat Blender","beatblender"],["PopTron","poptron"],["DEF CON Radio","defcon"],["Dub Step Beyond","dubstep"],["Groove Salad","groovesalad"],["The Trip","thetrip"],["Underground 80s","u80s"],["Secret Agent","secretagent"]].map(([n,id])=>({t:n,sub:"SomaFM",url:`https://ice2.somafm.com/${id}-128-mp3`}));
+async function radios(tag){const ck="r_"+tag,c=MC.get(ck);if(c)return c;
+  for(const h of ["de1","de2","fi1","at1"]){try{const d=await jget(`https://${h}.api.radio-browser.info/json/stations/search?tag=${encodeURIComponent(tag)}&order=clickcount&reverse=true&limit=60&hidebroken=true`);const seen=new Set();
+    const out=d.filter(x=>/^https:/.test(x.url_resolved||"")&&x.name&&!seen.has(x.name.trim().toLowerCase())&&seen.add(x.name.trim().toLowerCase())).slice(0,25).map(x=>({t:x.name.trim().slice(0,60),sub:[x.country,(x.tags||"").split(",").slice(0,2).join(" · ")].filter(Boolean).join(" — "),url:x.url_resolved,art:/^https:/.test(x.favicon||"")?x.favicon:""}));
+    if(out.length){MC.set(ck,out);return out}}catch(e){}}
+  return null}
+/* Quran */
+const SUWAR="الفاتحة،البقرة،آل عمران،النساء،المائدة،الأنعام،الأعراف،الأنفال،التوبة،يونس،هود،يوسف،الرعد،إبراهيم،الحجر،النحل،الإسراء،الكهف،مريم،طه،الأنبياء،الحج،المؤمنون،النور،الفرقان،الشعراء،النمل،القصص،العنكبوت،الروم،لقمان،السجدة،الأحزاب،سبأ،فاطر،يس،الصافات،ص،الزمر،غافر،فصلت،الشورى،الزخرف،الدخان،الجاثية،الأحقاف،محمد،الفتح،الحجرات،ق،الذاريات،الطور،النجم،القمر،الرحمن،الواقعة،الحديد،المجادلة،الحشر،الممتحنة،الصف،الجمعة،المنافقون،التغابن،الطلاق،التحريم،الملك،القلم،الحاقة،المعارج،نوح،الجن،المزمل،المدثر،القيامة،الإنسان،المرسلات،النبأ،النازعات،عبس،التكوير،الانفطار،المطففين،الانشقاق،البروج،الطارق،الأعلى،الغاشية،الفجر،البلد،الشمس،الليل،الضحى،الشرح،التين،العلق،القدر،البينة،الزلزلة،العاديات،القارعة،التكاثر،العصر،الهمزة،الفيل،قريش،الماعون،الكوثر،الكافرون،النصر،المسد،الإخلاص،الفلق،الناس".split("،");
+const ALL114=Array.from({length:114},(_,i)=>i+1);
+const QFB=[["مشاري راشد العفاسي","https://server8.mp3quran.net/afs/"],["ماهر المعيقلي","https://server12.mp3quran.net/maher/"],["عبدالباسط عبدالصمد","https://server7.mp3quran.net/basit/"],["سعد الغامدي","https://server7.mp3quran.net/s_gmd/"],["عبدالرحمن السديس","https://server11.mp3quran.net/sds/"],["ياسر الدوسري","https://server11.mp3quran.net/yasser/"],["ناصر القطامي","https://server6.mp3quran.net/qtm/"],["محمود خليل الحصري","https://server13.mp3quran.net/husr/"],["أحمد بن علي العجمي","https://server10.mp3quran.net/ajm/"],["فارس عباد","https://server8.mp3quran.net/frs_a/"],["سعود الشريم","https://server7.mp3quran.net/shur/"]].map(([n,s])=>({n,s,l:ALL114}));
+const QFAV=["العفاسي","المعيقلي","عبدالباسط","الغامدي","السديس","الدوسري","القطامي","الحصري","العجمي","عباد","الشريم","المنشاوي","اسلام صبحي","الطبلاوي"];
+async function reciters(){const c=MC.get("qr");if(c)return c;
+  try{const d=await jget("https://mp3quran.net/api/v3/reciters?language=ar");const list=[];
+    for(const r of d.reciters||[]){const ms=r.moshaf||[],m=ms.find(x=>/حفص/.test(x.name||"")&&/مرتل/.test(x.name||""))||ms.find(x=>/حفص/.test(x.name||""))||ms[0];if(!m||!m.server)continue;
+      list.push({n:r.name,s:String(m.server).replace(/^http:/,"https:"),l:String(m.surah_list||"").split(",").map(Number).filter(Boolean)})}
+    const rank=x=>{const nn=fnorm(x.n).replace(/\s/g,"");const i=QFAV.findIndex(f=>nn.includes(fnorm(f).replace(/\s/g,"")));return i<0?99:i};
+    list.sort((a,b)=>rank(a)-rank(b)||a.n.localeCompare(b.n,"ar"));
+    if(list.length){MC.set("qr",list);return list}}catch(e){}
+  return QFB}
+/* podcasts: Apple Podcasts directory, newest episodes first */
+const PCATS=[["fit",["رياضة وصحة","Sport & health"],["رياضة","لياقة","تغذية","صحة"]],["self",["تطوير الذات","Self-growth"],["تطوير الذات","تحفيز","نجاح"]],["top",["منوعات","Popular"],["ثمانية","بودكاست عربي","فنجان"]]];
+async function episodes(id,n){const d=await jsonp(`https://itunes.apple.com/lookup?id=${id}&entity=podcastEpisode&limit=${n}&country=sa`);
+  return (d.results||[]).filter(x=>x.wrapperType==="podcastEpisode"&&x.episodeUrl).map(x=>({t:x.trackName,sub:x.collectionName,url:String(x.episodeUrl).replace(/^http:/,"https:"),art:x.artworkUrl160||x.artworkUrl60||"",d:Date.parse(x.releaseDate)||0}))}
+async function podcasts(cat){const ck="p_"+cat,c=MC.get(ck);if(c)return c;const C=PCATS.find(x=>x[0]===cat),shows=new Map();
+  await Promise.all(C[2].map(async term=>{try{const d=await jsonp(`https://itunes.apple.com/search?media=podcast&country=sa&limit=12&term=${encodeURIComponent(term)}`);(d.results||[]).forEach(r=>{if(r.collectionId&&!shows.has(r.collectionId))shows.set(r.collectionId,{id:r.collectionId,n:r.collectionName,a:r.artistName,art:r.artworkUrl100||r.artworkUrl60||""})})}catch(e){}}));
+  const list=[...shows.values()].slice(0,16),eps=[];
+  await Promise.all(list.slice(0,10).map(async s=>{try{const e=await episodes(s.id,4);s.last=e[0]?e[0].d:0;eps.push(...e)}catch(e){}}));
+  eps.sort((a,b)=>b.d-a.d);list.sort((a,b)=>(b.last||0)-(a.last||0));const v={shows:list,eps:eps.slice(0,30)};if(list.length)MC.set(ck,v);return v}
+/* UI */
+let MT="music",MTAG="workout",MPC="fit",MSHOW=null,MREC=null,CUR=[],MTOK=0;
+try{MREC=localStorage.getItem(LK+":rec")}catch(e){}
+const trk=(it,i,extra)=>`<button class="trk" data-trk="${i}">${it.art?`<img src="${esc(it.art)}" alt="" loading="lazy" onerror="this.remove()">`:`<span class="pi">${ICON.media}</span>`}<span class="tt"><b>${esc(it.t)}</b><small>${esc(extra||it.sub||"")}</small></span><span class="eq">${ICON.play}</span></button>`;
+function markPlaying(){const cur=PL.q[PL.i];document.querySelectorAll("[data-trk]").forEach(b=>{const it=CUR[+b.dataset.trk];b.classList.toggle("on",!!(cur&&it&&it.url===cur.url))})}
+function renderMedia(){const v=$("#view");
+  v.innerHTML=`<h1>${t("media")}</h1><div class="seg">${[["music","mMusic"],["quran","mQuran"],["pod","mPod"]].map(([k,l])=>`<button data-mt="${k}" aria-pressed="${MT===k}">${t(l)}</button>`).join("")}</div><div id="mBox"></div>`;
+  v.onclick=e=>{const b=e.target.closest("button");if(!b)return;
+    if(b.dataset.mt){MT=b.dataset.mt;MSHOW=null;return renderMedia()}
+    if(b.dataset.tag){MTAG=b.dataset.tag;return drawMedia()}
+    if(b.dataset.pc){MPC=b.dataset.pc;MSHOW=null;return drawMedia()}
+    if(b.dataset.show){MSHOW=+b.dataset.show;return drawMedia()}
+    if(b.dataset.mback!==undefined){MSHOW=null;return drawMedia()}
+    if(b.dataset.qall!==undefined){if(CUR.length)playQ(CUR,0);return}
+    if(b.dataset.trk){unlockAudio();playQ(CUR,+b.dataset.trk)}};
+  v.onchange=e=>{if(e.target.id==="qRec"){MREC=e.target.value;try{localStorage.setItem(LK+":rec",MREC)}catch(x){}drawMedia()}};
+  drawMedia()}
+async function drawMedia(){const box=$("#mBox");if(!box)return;const tok=++MTOK,live=()=>tok===MTOK&&TAB==="media"&&$("#mBox");
+  box.innerHTML=`<p class="mute" style="margin-top:14px">${t("mLoading")}</p>`;
+  if(MT==="music"){const chips=`<div class="hs">${RTAGS.map(([k,l])=>`<button class="chip ${MTAG===k?"acc":""}" data-tag="${k}">${esc(tr(l))}</button>`).join("")}</div>`;box.innerHTML=chips+box.innerHTML;
+    let L=await radios(MTAG),off=false;if(!L){L=RFB;off=true}if(!live())return;CUR=L;
+    box.innerHTML=chips+`<p class="tiny">${off?t("mOff"):t("mLive")}</p><div class="trks">${L.map((it,i)=>trk(it,i)).join("")}</div>`}
+  else if(MT==="quran"){const R=await reciters();if(!live())return;let r=R.find(x=>x.n===MREC)||R[0];MREC=r.n;
+    CUR=r.l.filter(n=>n>=1&&n<=114).map(n=>({t:tr(["سورة ","Surah "])+SUWAR[n-1],sub:r.n,url:r.s+String(n).padStart(3,"0")+".mp3",n}));
+    box.innerHTML=`<label class="f" for="qRec">${t("reciter")}</label><select class="in" id="qRec">${R.map(x=>`<option ${x.n===r.n?"selected":""}>${esc(x.n)}</option>`).join("")}</select><button class="btn pri wide" data-qall style="margin-top:10px">${t("playAll")}</button><div class="trks qg">${CUR.map((it,i)=>`<button class="trk sq" data-trk="${i}"><span class="qn">${it.n}</span><span class="tt"><b>${esc(SUWAR[it.n-1])}</b></span></button>`).join("")}</div>`}
+  else{const chips=`<div class="hs">${PCATS.map(([k,l])=>`<button class="chip ${MPC===k?"acc":""}" data-pc="${k}">${esc(tr(l))}</button>`).join("")}</div>`;box.innerHTML=chips+box.innerHTML;
+    if(MSHOW){let E=[];try{E=await episodes(MSHOW,25)}catch(e){}if(!live())return;CUR=E;
+      box.innerHTML=chips+`<button class="btn ghost" data-mback style="margin:10px 0">${t("backB")}</button>${E.length?`<h3 style="margin:6px 0">${esc(E[0].sub)}</h3><div class="trks">${E.map((it,i)=>trk(it,i,fmtD(it.d))).join("")}</div>`:`<p class="mute">${t("mOffP")}</p>`}`}
+    else{const P=await podcasts(MPC);if(!live())return;CUR=P.eps;
+      box.innerHTML=chips+(P.shows.length?`<h3>${t("latestEp")}</h3><div class="trks">${P.eps.map((it,i)=>trk(it,i,it.sub+" · "+fmtD(it.d))).join("")}</div><h3>${t("shows")}</h3><div class="shows">${P.shows.map(s=>`<button class="show" data-show="${s.id}">${s.art?`<img src="${esc(s.art)}" alt="" loading="lazy" onerror="this.remove()">`:""}<b>${esc(s.n)}</b><small>${esc(s.a||"")}</small></button>`).join("")}</div>`:`<p class="mute" style="margin-top:12px">${t("mOffP")}</p>`)}}
+  markPlaying()}
+
 /* ================= BOOT ================= */
 Store.docs=Store.lload();fromDocs();
-TAB=(location.hash||"").slice(1)||"train";if(!["train","progress","body","food","coach"].includes(TAB))TAB="train";
+TAB=(location.hash||"").slice(1)||"train";if(!["train","progress","body","food","meals","media","coach"].includes(TAB))TAB="train";
 render();
-initAI().then(()=>{if(S.profile&&S.profile.done&&(TAB==="coach"||TAB==="food"))render()});
-Store.cloud().then(ok=>{if(ok==="loaded"){fromDocs();if(SE.hidden)render()}});
-window.addEventListener("hashchange",()=>{const h=location.hash.slice(1);if(["train","progress","body","food","coach"].includes(h)&&h!==TAB){TAB=h;render()}});
+window.addEventListener("hashchange",()=>{const h=location.hash.slice(1);if(["train","progress","body","food","meals","media","coach"].includes(h)&&h!==TAB){TAB=h;render()}});
 }
 </script>
 <script>if("serviceWorker" in navigator&&location.protocol==="https:"&&!location.hostname.endsWith("claude.ai")&&!location.hostname.endsWith("claudeusercontent.com")){addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}))}</script>
