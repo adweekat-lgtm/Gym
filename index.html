@@ -662,10 +662,12 @@ SE.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
 let AC=null;function unlockAudio(){try{if(!AC){AC=new (window.AudioContext||window.webkitAudioContext)()}if(AC.state==="suspended")AC.resume()}catch(e){}}
 function beep(){try{if(!AC)return;const t0=AC.currentTime;[0,0.25,0.5].forEach(d=>{const o=AC.createOscillator(),g=AC.createGain();o.frequency.value=d===0.5?1320:880;o.connect(g);g.connect(AC.destination);g.gain.setValueAtTime(0.0001,t0+d);g.gain.exponentialRampToValueAtTime(0.4,t0+d+0.02);g.gain.exponentialRampToValueAtTime(0.0001,t0+d+0.18);o.start(t0+d);o.stop(t0+d+0.2)})}catch(e){}try{navigator.vibrate&&navigator.vibrate([200,100,200])}catch(e){}}
 let R={end:0,total:0};
-function startRest(sec){R.total=sec;R.end=Date.now()+sec*1000;$("#sheet").classList.add("on");drawRest();clearInterval(restT);restT=setInterval(drawRest,250)}
+/* window.GhoolNative exists only inside the store apps (mobile/native.js) */
+const NAT=window.GhoolNative||null;
+function startRest(sec){R.total=sec;R.end=Date.now()+sec*1000;if(NAT)NAT.rest(R.end,L());$("#sheet").classList.add("on");drawRest();clearInterval(restT);restT=setInterval(drawRest,250)}
 function drawRest(){const left=(R.end-Date.now())/1000;if(left<=0){clearInterval(restT);restT=null;beep();$("#sheetIn").innerHTML=`<div class="big" style="color:var(--ok)">${t("nextSet")}</div>`;setTimeout(()=>{if(!restT)stopRest()},2200);return}
   $("#sheetIn").innerHTML=`<div class="row between"><b>${t("restTime")}</b><span class="tiny">${mmss(R.total)}</span></div><div class="big" style="margin:10px 0">${mmss(left)}</div><div class="bar"><i style="width:${(1-left/R.total)*100}%"></i></div><div class="row" style="margin-top:12px"><button class="btn" data-rt="-15" style="flex:1">−15</button><button class="btn" data-rt="15" style="flex:1">+15</button><button class="btn pri" data-rt="skip" style="flex:1">${t("cont")}</button></div>`}
-function stopRest(){clearInterval(restT);restT=null;$("#sheet").classList.remove("on");setTimeout(()=>{if(!restT)$("#sheetIn").innerHTML=""},300)}
+function stopRest(){clearInterval(restT);restT=null;if(NAT)NAT.restEnd();$("#sheet").classList.remove("on");setTimeout(()=>{if(!restT)$("#sheetIn").innerHTML=""},300)}
 $("#sheet").addEventListener("click",e=>{const b=e.target.closest("[data-rt]");if(!b)return;if(b.dataset.rt==="skip")return stopRest();R.end+=(+b.dataset.rt)*1000;R.total=Math.max(R.total+(+b.dataset.rt),1);drawRest()});
 
 function finishSession(){
@@ -902,7 +904,7 @@ function openSettings(){
   <div class="grid2"><div><label class="f" for="sW">${t("weight")}</label><input class="in" id="sW" inputmode="decimal" value="${p.weight??""}"></div><div><label class="f" for="sH">${t("height")}</label><input class="in" id="sH" inputmode="numeric" value="${p.height??""}"></div></div>
   <h3>${t("targets")}</h3><div class="grid2">${["kcal","protein","carbs","fiber"].map(k=>`<div><label class="f" for="st_${k}">${t(k)}</label><input class="in" id="st_${k}" inputmode="numeric" value="${tg[k]??""}"></div>`).join("")}</div><button class="btn ghost wide" id="sAuto" style="margin-top:8px">${t("autoT")}</button>
   <button class="btn pri wide" id="sSave" style="margin-top:14px">${t("saveB")}</button>
-  ${waCard(false)}${GA_ID?`<label class="f">${t("stT")}</label><div class="seg"><button data-sst="1" aria-pressed="${p.stats!==false}">${t("sfxOn")}</button><button data-sst="0" aria-pressed="${p.stats===false}">${t("sfxOff")}</button></div><p class="tiny">${t("stS")}</p>`:""}<h3>${t("storage")}</h3><p class="small mute">${Store.mode==="cloud"?t("cloud"):t("local")}</p>
+  ${waCard(false)}${GA_ID?`<label class="f">${t("stT")}</label><div class="seg"><button data-sst="1" aria-pressed="${p.stats!==false}">${t("sfxOn")}</button><button data-sst="0" aria-pressed="${p.stats===false}">${t("sfxOff")}</button></div><p class="tiny">${t("stS")}</p>`:""}${NAT?NAT.settings(L(),FEM()):""}<h3>${t("storage")}</h3><p class="small mute">${Store.mode==="cloud"?t("cloud"):t("local")}</p>
   <div class="row"><button class="btn" id="sBk" style="flex:1">${t("backup")}</button></div>
   <label class="f" for="sRs">${t("restoreHint")}</label><textarea class="in" id="sRs"></textarea><div class="row" style="margin-top:8px"><input type="file" id="sFile" accept=".json,.txt,application/json" class="small"><button class="btn" id="sRsB">${t("restore")}</button></div>
   <button class="btn danger wide" id="sReset" style="margin-top:18px">${t("reset")}</button><p class="tiny">${t("disc")}</p>${privLink()}`);
@@ -918,7 +920,7 @@ function openSettings(){
     if(b.id==="sSave"){p.name=$("#sName").value.trim()||p.name;p.lang=lang;if(level!==p.level){p.level=level;S.progress.easy=0;S.progress.hard=0}p.goal=$("#sGoal").value;p.weight=num($("#sW").value);p.height=num($("#sH").value);p.targets={};for(const k of ["kcal","protein","carbs","fiber"])p.targets[k]=num($("#st_"+k).value)||0;saveProfile();closeModal();toast(t("saveOk"));render()}
     if(b.id==="sBk"){const txt=JSON.stringify({app:"coach",v:1,docs:Store.docs});try{await navigator.clipboard.writeText(txt);toast(t("copied"))}catch(err){$("#sRs").value=txt;$("#sRs").select()}}
     if(b.id==="sRsB"){let txt=$("#sRs").value.trim();const f=$("#sFile").files[0];if(!txt&&f)txt=await f.text();try{const o=JSON.parse(txt);if(!o||o.app!=="coach"||!o.docs||!o.docs.profile)throw 0;for(const k of Object.keys(Store.docs))if(!(k in o.docs))Store.del(k);for(const k in o.docs)Store.put(k,o.docs[k]);fromDocs();closeModal();toast(t("restored"));render()}catch(err){toast(t("bad"))}}
-    if(b.id==="sReset"){if(b.dataset.c!=="1"){b.dataset.c="1";b.textContent=t("sure");return}for(const k of Object.keys(Store.docs))Store.del(k);S.active=null;saveActive();try{Object.keys(localStorage).filter(k=>k===LK||k.startsWith(LK+":")).forEach(k=>localStorage.removeItem(k))}catch(x){}try{if(window.caches)caches.delete("ghoolw-1")}catch(x){}WOFF=null;WASK=false;fromDocs();OB={step:0,lang:"ar",name:"",level:"int",goal:"recomp",weight:""};closeModal();render()}
+    if(b.id==="sReset"){if(b.dataset.c!=="1"){b.dataset.c="1";b.textContent=t("sure");return}for(const k of Object.keys(Store.docs))Store.del(k);S.active=null;saveActive();try{Object.keys(localStorage).filter(k=>k===LK||k.startsWith(LK+":")).forEach(k=>localStorage.removeItem(k))}catch(x){}try{if(window.caches)caches.delete("ghoolw-1")}catch(x){}WOFF=null;WASK=false;if(NAT)NAT.erase();fromDocs();OB={step:0,lang:"ar",name:"",level:"int",goal:"recomp",weight:""};closeModal();render()}
   };
 }
 
@@ -1439,6 +1441,6 @@ render();
 window.addEventListener("hashchange",()=>{const h=location.hash.slice(1);if(["train","progress","body","food","meals","media","coach","team","prog"].includes(h)&&h!==TAB){TAB=h;render()}});
 }
 </script>
-<script>if("serviceWorker" in navigator&&location.protocol==="https:"&&!location.hostname.endsWith("claude.ai")&&!location.hostname.endsWith("claudeusercontent.com")){addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}))}</script>
+<script>if("serviceWorker" in navigator&&!window.GhoolNative&&location.protocol==="https:"&&!location.hostname.endsWith("claude.ai")&&!location.hostname.endsWith("claudeusercontent.com")){addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}))}</script>
 </body>
 </html>
