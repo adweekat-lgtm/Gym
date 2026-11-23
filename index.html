@@ -3,16 +3,16 @@
 <head><!-- /frame-runtime -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Dweekat Fitness</title>
+<title>غول – Ghool</title>
 <meta name="theme-color" content="#0e1015">
-<meta name="description" content="Dweekat Fitness — مدربك الشخصي: برنامج تمارين، تقدّم، أكل وقياسات">
+<meta name="description" content="غول – Ghool — مدربك الشخصي: برنامج تمارين، تقدّم، أكل وقياسات">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Dweekat Fitness">
+<meta name="apple-mobile-web-app-title" content="غول">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -131,8 +131,12 @@ textarea.in{min-height:84px;resize:vertical}
 .clip.pic{aspect-ratio:3/2;background:#fff}
 .clip.pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .clip.pic img+img{animation:exFrame 2.4s ease-in-out infinite}
+.clip.pic.anim{background:#fff}.clip.pic.anim video,.clip.pic.anim img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.exc video.thv{width:100%;aspect-ratio:3/2;object-fit:contain;display:block;background:#fff}
 @keyframes exFrame{0%,38%{opacity:0}50%,88%{opacity:1}100%{opacity:0}}
-@media (prefers-reduced-motion:reduce){.clip.pic img+img{animation:none}}
+/* reduced motion: the two frames ARE the instruction, so keep showing both — slower, hard cut, no fade */
+@keyframes exStep{0%,49.9%{opacity:0}50%,100%{opacity:1}}
+@media (prefers-reduced-motion:reduce){.clip.pic img+img{animation:exStep 3.2s step-end infinite}}
 .how{margin:12px 0;background:var(--p1);border:1px solid var(--line);border-radius:16px;overflow:hidden}
 .how summary{list-style:none;cursor:pointer;padding:12px 14px;font-weight:700;display:flex;align-items:center;justify-content:space-between;gap:8px}
 .how summary::-webkit-details-marker{display:none}
@@ -212,7 +216,7 @@ details summary{cursor:pointer;min-height:44px;display:flex;align-items:center}
 </head>
 <body>
 <header class="top">
-  <div class="brand">Dweekat <b>Fitness</b></div>
+  <div class="brand">غول <b>Ghool</b></div>
   <div class="hbtns"><button class="icon-btn" id="teamBtn" data-team aria-label="team"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><circle cx="17" cy="9" r="2.6"/><path d="M15.5 14.2c2.6-.3 4.6 1.3 5 4.3"/></svg></button><button class="icon-btn" id="coachBtn" aria-label="coach"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h8"/></svg></button><button class="icon-btn" id="gear" aria-label="settings"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button></div>
 </header>
 <main class="wrap" id="view"><p class="mute">…</p></main>
@@ -301,7 +305,18 @@ rdl:[["وقف والبار أو الدمبلز قدام فخذك ورجليك ب
 hip_thrust:[["اسند أعلى ظهرك على البنش والبار فوق حوضك (مع وسادة)","Rest your upper back on a bench with the bar over your hips (use a pad)"],["رجليك على الأرض بعرض الحوض والركب منثنية","Feet flat, hip-width apart, knees bent"],["ادفع حوضك لفوق لحد ما يصير جسمك خط مستقيم من الكتف للركبة","Drive your hips up until your body forms a straight line from shoulders to knees"],["اعصر المؤخرة ثانية بالأعلى وبعدين نزّل بتحكم","Squeeze your glutes for a second at the top, then lower under control"]],
 leg_curl:[["نام على بطنك على الجهاز والمسند فوق كاحلك مباشرة","Lie face down on the machine with the pad just above your ankles"],["امسك المقابض وخلّي حوضك لازق بالمسند","Hold the handles and keep your hips pressed into the pad"],["اثني رجليك وقرّب كعبك من مؤخرتك","Curl your legs, bringing your heels toward your glutes"],["نزّل ببطء لحد قبل ما ينفردوا كامل وكرّر","Lower slowly until just short of full extension, then repeat"]]
 };
-const IMG=k=>(typeof FIMG!=="undefined"&&S.profile&&S.profile.gender==="f"&&FIMG.has(k)?"img/exf/":"img/ex/")+k;
+/* Women's exercise media. Add a key here once its file is in img/exf/:
+   "mp4"  → img/exf/<key>.mp4  (looping animation, preferred)
+   "gif" / "webp" → img/exf/<key>.gif|webp (animated image)
+   "jpg"  → img/exf/<key>-0.jpg + <key>-1.jpg (two frames, like the men's photos)
+   Keys not listed fall back to the regular img/ex photos. */
+const FIMG={arm_circles:"jpg",bench:"jpg",bike:"jpg",box:"jpg",burpee:"jpg",bw_squat:"jpg",calf:"jpg",crunch:"jpg",cs_row:"jpg",db_curl:"jpg",db_lateral:"jpg",db_shoulder:"jpg",face_pull:"jpg",goblet:"jpg",hammer_curl:"jpg",hip_hinge:"jpg",hip_thrust:"jpg",incline_db:"jpg",incline_machine:"jpg",jrope:"jpg",jsquat:"jpg",kb:"jpg",leg_curl:"jpg",leg_ext:"jpg",leg_press:"jpg",lunges:"jpg",machine_chest:"jpg",mc_rower:"jpg",mclimb:"jpg",one_arm_row:"jpg",overhead_ext:"jpg",pec_deck:"jpg",plank:"jpg",pushdown:"jpg",pushup:"jpg",rdl:"jpg",rlunge:"jpg",ropes:"jpg",rower:"jpg",seated_row:"jpg",slam:"jpg",thruster:"jpg",w_abduct:"jpg",w_adduct:"jpg",w_benchdip:"jpg",w_breath:"jpg",w_bridge:"jpg",w_cablekick:"jpg",w_catcow:"jpg",w_flutter:"jpg",w_flyes:"jpg",w_inpush:"jpg",w_kickback:"jpg",w_legraise:"jpg",w_plie:"jpg",w_ptilt:"jpg",w_pullover:"jpg",w_russian:"jpg",w_sidebridge:"jpg",w_sidelift:"jpg",w_slbridge:"jpg",w_stepup:"jpg",wallball:"jpg"};
+const fx=k=>(typeof FEM==="function"&&FEM()&&FIMG[k])||"";
+const IMG=k=>(fx(k)==="jpg"?"img/exf/":"img/ex/")+k;
+function thumb(k){const f=fx(k);
+  if(f==="mp4")return `<video class="thv" src="img/exf/${k}.mp4#t=0.6" muted playsinline preload="metadata"></video>`;
+  if(f==="gif"||f==="webp")return `<img src="img/exf/${k}.${f}" alt="" loading="lazy">`;
+  return `<img src="${IMG(k)}-1.jpg" alt="" loading="lazy">`}
 const LV={
 beg:{n:["مبتدئ","Beginner"],d:["أول 1–3 شهور تمرين أو راجع بعد انقطاع","First 1–3 months, or coming back after a break"],rir:"3",adj:i=>i===0?-1:0,drop:0,mcR:2,lap:45,fin:1,hiit:4,inc:["6–8%","6–8%"]},
 int:{n:["متوسط","Intermediate"],d:["متمرن بانتظام من 3 لـ 12 شهر","Training consistently for 3–12 months"],rir:"1–2",adj:()=>0,drop:0,mcR:2,lap:30,fin:1,hiit:6,inc:["10–12%","10–12%"]},
@@ -333,8 +348,37 @@ const $=(s,r=document)=>r.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const S={profile:null,progress:{lastDay:0,mc:0,easy:0,hard:0,dismiss:0},sessions:[],body:[],food:{},chat:[],active:null};
 const L=()=>(S.profile&&S.profile.lang)||"ar";
-const tr=p=>Array.isArray(p)?p[L()==="ar"?0:1]:p;
-const t=(k,v)=>{let s=STR[L()][k]??STR.ar[k]??k;if(v)for(const x in v)s=s.split("{"+x+"}").join(v[x]);return s};
+/* Arabic addressed to a woman: used when the profile (or onboarding choice) is female.
+   STRF overrides STR.ar per key; inline tr() arrays may carry a 3rd item = feminine Arabic. */
+const FEM=()=>{try{return (S.profile&&S.profile.gender==="f")||(!S.profile&&typeof OB!=="undefined"&&OB.gender==="f")}catch(e){return false}};
+const STRF={start:"ابدئي",resume:"كمّلي الحصة",pickDay:"أو اختاري يوم",
+avOffTxt:"المختص غير متاح للحجز هالفترة. جرّبي مختص تاني أو ارجعي بعدين.",waTeam:"اختاري مختص واحجزي موعد",
+teamSub:"مدربين ومدربات، أخصائية تغذية وأخصائية نفسية. اختاري المختص واحجزي موعد فيديو كول أو اتصال.",tSoonTxt:"هالمختص رح ينضم قريباً — تابعينا.",
+psyS:"الجلسات للدعم والاستشارة وليست لحالات الطوارئ. إذا كنتِ بخطر أو عندك أفكار بإيذاء نفسك اتصلي بالطوارئ فوراً على 911.",
+bkT:"احجزي موعد",bkNote:"شي بتحبي المختص يعرفه (اختياري)",bkSend:"ابعتي طلب الموعد عالواتساب",bkHint:"الموعد بيتأكّد لما المختص يرد عليكِ عالواتساب.",
+waThen:"وبعدها 18$ بالشهر — بتقدري توقفي أي وقت",waT:"اشتركي مع الكوتش",wa5:"اختاري الكوتش وابعتيله عالواتساب:",waBtn:"اشتركي عالواتساب",
+swap:"بدّلي",addMine:"أضيفي لأكلي",mNote:"الكميات تقريبية ومحسوبة على هدفك. غيّري وزنك أو هدفك من الإعدادات والاقتراحات بتتعدل.",
+mErr:"ما قدرت أشغّل هالمقطع — جرّبي غيره",mOffP:"ما قدرت أجيب البودكاست — تأكدي من الإنترنت وجرّبي كمان مرة.",playAll:"شغّلي من البداية",
+libSub:"اضغطي على أي تمرين لتشوفي الصورة وطريقة الأداء",never:"لسا ما تمرنتيه",logRest:"سجّلي يوم الراحة",
+levelUp:"آخر 3 حصص كانت سهلة عليكِ. نرفع المستوى لـ {l}؟",warmSub:"6–7 دقائق — جهّزي المفاصل والعضلات",addSet:"زيدي Set",
+sugNew:"أول مرة: اختاري وزن بتقدري تعملي فيه {hi} تكرار بتكنيك نظيف",sugUp:"وصلتِ للهدف المرة الماضية. زيدي لـ {w} {u}",
+sugSame:"نفس الوزن {w} {u} وحاولي تزيدي تكرار",sugDown:"المرة الماضية كانت ثقيلة. نزّلي لـ {w} {u} وركّزي عالتكنيك",
+sugUpT:"وصلتِ للهدف. زيدي 5 ثواني لكل Set",sugSameT:"حاولي تزيدي ثواني عن المرة الماضية",
+editHint:"عدّلي التكرارات إذا ما وصلتِ للهدف، والتطبيق بيرفع الوزن لحاله",startT:"ابدئي",pauseT:"وقّفي",resetT:"صفّري",
+save:"احفظي الحصة",exitT:"تطلعي من الحصة؟",exitKeep:"كمّلي بعدين",exitDiscard:"الغي الحصة",pickEx:"اختاري تمرين",del:"احذفي",
+sure:"متأكدة؟ ما في رجعة",addEntry:"أضيفي قياس",inbodyHint:"سجّلي InBody كل 4–6 أسابيع، والوزن مرة بالأسبوع بنفس الوقت",
+whatAte:"شو أكلتِ؟ اكتبيه متل ما بتحكي، مثلاً: صحن رز مع صدر دجاج وسلطة",estimate:"احسبي الأكل",
+estLocal:"بيحسب من قاعدة أكلات عربية بالجوال — اكتبي الكمية مثل: ٢ سيخ، رغيفين، نص فروج، 200 غرام رز. وبتقدري تعدّلي الأرقام قبل ما تضيفي.",
+estMiss:"ما عرفت أحسب: {s} — ضيفيها يدوي.",add:"أضيفي",
+noAI:"الحساب الذكي بيشتغل لما تفتحي التطبيق وانتِ مسجّلة دخول على Claude. فيكِ تضيفي يدوي.",
+coachHello:"أنا الكوتش تبعك 💪 بشتغل بدون إنترنت وبشوف حصصك وقياساتك وأكلك. اختاري سؤال تحت أو اكتبي سؤالك.",
+ask:"اكتبي سؤالك…",send:"ابعتي",clearChat:"امسحي المحادثة",aiErr:"ما قدرت أوصل للكوتش هلأ. جرّبي بعد شوي.",
+aiOff:"الكوتش الذكي بيشتغل لما تفتحي التطبيق وانتِ مسجّلة دخول على Claude.",autoT:"احسبي تلقائياً",saveB:"احفظي",
+local:"محفوظ على هالجهاز بس — اعملي نسخة احتياطية من وقت لوقت",backup:"انسخي نسخة احتياطية",restore:"استرجعي نسخة",
+restoreHint:"الصقي النسخة هون أو اختاري ملف",copied:"انتسخت — احفظيها بمكان آمن",reset:"امسحي كل البيانات",
+disc:"التطبيق دليل تدريب عام مش استشارة طبية. إذا حسّيتي بألم حاد وقّفي وراجعي مختص.",gPick:"اختاري",rateIt:"قيّمي الحصة"};
+const tr=p=>Array.isArray(p)?(L()==="ar"?(p.length>2&&p[2]&&FEM()?p[2]:p[0]):p[1]):p;
+const t=(k,v)=>{let s=(L()==="ar"&&FEM()&&STRF[k])||STR[L()][k]||STR.ar[k]||k;if(v)for(const x in v)s=s.split("{"+x+"}").join(v[x]);return s};
 const pad=n=>String(n).padStart(2,"0");
 const dkey=(d=new Date())=>d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
 const fmtD=iso=>{const d=new Date(iso);return d.toLocaleDateString(L()==="ar"?"ar-u-nu-latn":"en-GB",{day:"numeric",month:"short"})};
@@ -521,7 +565,7 @@ function renderTrain(){
   if(nd.rest)h+=`<p class="small">${t("restTxt")}</p><button class="btn ok wide" id="logRest">${t("logRest")}</button>`;
   else h+=`<div class="row small mute" style="margin-bottom:12px">${nd.ex.map(k=>`<button class="chip" data-exi="${k}">${esc(EXD[k].n)}</button>`).join("")}</div><button class="btn pri wide" data-start="${nd.id}">${t("start")}</button>`;
   h+=`</div><div class="grid3"><div class="stat"><b>${last7.length}</b><span>${t("week")} · ${t("sessionsN")}</span></div><div class="stat"><b>${Math.round(vol7).toLocaleString("en")}</b><span>${t("volW")}</span></div><div class="stat"><b>${S.sessions.filter(s=>!s.rest).length}</b><span>${t("allS")}</span></div></div>`;
-  h+=``+waCard(false)+(isF()?progCards():"")+`<h3>${t("pickDay")}</h3><div class="grid2">`+DAYS.map(d=>{const ls=[...S.sessions].reverse().find(s=>s.day===d.id);return `<button class="day ${d.id===nd.id?"next":""}" data-start="${d.id}"><span class="n">${t("dayN",{n:d.id})}</span><b>${esc(tr(d.n))}</b><span class="small mute">${esc(tr(d.d))}</span><span class="tiny">${ls?t("lastDone",{d:ago(ls.start)}):t("never")}</span></button>`}).join("")+`</div><h3>${t("lib")}</h3><p class="small mute" style="margin-top:-6px">${t("libSub")}</p><div class="exlib">`+Object.keys(EXD).map(k=>`<button class="exc" data-exi="${k}"><img src="${IMG(k)}-1.jpg" alt="" loading="lazy"><b>${esc(EXD[k].n)}</b><span>${esc(tr(EXD[k].m))}</span></button>`).join("")+`</div><p class="tiny" style="margin-top:16px">${t("disc")}</p>`;
+  h+=``+waCard(false)+(isF()?progCards():"")+`<h3>${t("pickDay")}</h3><div class="grid2">`+DAYS.map(d=>{const ls=[...S.sessions].reverse().find(s=>s.day===d.id);return `<button class="day ${d.id===nd.id?"next":""}" data-start="${d.id}"><span class="n">${t("dayN",{n:d.id})}</span><b>${esc(tr(d.n))}</b><span class="small mute">${esc(tr(d.d))}</span><span class="tiny">${ls?t("lastDone",{d:ago(ls.start)}):t("never")}</span></button>`}).join("")+`</div><h3>${t("lib")}</h3><p class="small mute" style="margin-top:-6px">${t("libSub")}</p><div class="exlib">`+Object.keys(EXD).map(k=>`<button class="exc" data-exi="${k}">${thumb(k)}<b>${esc(EXD[k].n)}</b><span>${esc(tr(EXD[k].m))}</span></button>`).join("")+`</div><p class="tiny" style="margin-top:16px">${t("disc")}</p>`;
   v.innerHTML=h;
   v.onclick=e=>{const b=e.target.closest("button");if(!b)return;
     if(b.dataset.exi)return exInfo(b.dataset.exi);
@@ -542,7 +586,10 @@ function sessVolume(s){let v=0;for(const k in s.ex||{}){if(EXD[k]&&EXD[k].unit==
 const SE=$("#session");let restT=null,swT=null;
 function openSession(){SE.hidden=false;document.body.classList.add("sess");document.body.style.overflow="hidden";renderStep()}
 function closeSession(){SE.hidden=true;document.body.classList.remove("sess");SE.innerHTML="";document.body.style.overflow="";stopRest();clearInterval(swT);render()}
-function pic(k,label){return `<div class="clip pic"><img src="${IMG(k)}-0.jpg" alt="" loading="lazy"><img src="${IMG(k)}-1.jpg" alt="" loading="lazy">${label?`<span class="chip">${esc(label)}</span>`:""}</div>`}
+function pic(k,label){const f=fx(k),chip=label?`<span class="chip">${esc(label)}</span>`:"";
+  if(f==="mp4")return `<div class="clip pic anim"><video src="img/exf/${k}.mp4" autoplay loop muted playsinline preload="auto"></video>${chip}</div>`;
+  if(f==="gif"||f==="webp")return `<div class="clip pic anim"><img src="img/exf/${k}.${f}" alt="" loading="lazy">${chip}</div>`;
+  return `<div class="clip pic"><img src="${IMG(k)}-0.jpg" alt="" loading="lazy"><img src="${IMG(k)}-1.jpg" alt="" loading="lazy">${chip}</div>`}
 function vid(clip){return pic(clip)}
 function howBox(k,open){const st=HOW[k];if(!st)return "";return `<details class="how"${open?" open":""}><summary>${t("howTo")}</summary><ol>${st.map(x=>`<li>${esc(tr(x))}</li>`).join("")}</ol></details>`}
 function exInfo(k){const X=EXD[k];if(!X)return;const rr=X.r[0]===X.r[1]?X.r[0]:X.r[0]+"–"+X.r[1];modal(`<div class="row between"><h2 style="margin:0">${esc(X.n)}</h2><button class="icon-btn" id="exClose" aria-label="close">${ICON.x}</button></div><p class="mute" style="margin:4px 0 10px">${esc(tr(X.sub))}</p>${pic(k,tr(X.m))}<div class="targets"><span class="chip acc">${X.s} × ${rr}${X.unit==="s"?" "+t("sec"):""}</span><span class="chip ok">${t("rest",{n:X.rest})}</span></div>${howBox(k,true)}<h3 style="margin:14px 0 4px">${t("tipsT")}</h3><ol class="cues">${X.c.map(c=>`<li>${esc(tr(c))}</li>`).join("")}</ol>`);$("#exClose").onclick=closeModal}
@@ -856,7 +903,7 @@ function openSettings(){
   const M=$("#modalIn");let lang=p.lang,level=p.level;
   M.onclick=async e=>{const b=e.target.closest("button");if(!b)return;
     if(b.id==="sClose")return closeModal();
-    if(b.dataset.sg){p.gender=b.dataset.sg;saveProfile();M.querySelectorAll("[data-sg]").forEach(x=>x.setAttribute("aria-pressed",x===b));tapSfx();return}
+    if(b.dataset.sg){p.gender=b.dataset.sg;saveProfile();M.querySelectorAll("[data-sg]").forEach(x=>x.setAttribute("aria-pressed",x===b));tapSfx();render();openSettings();return}
     if(b.dataset.sst){p.stats=b.dataset.sst==="1";saveProfile();M.querySelectorAll("[data-sst]").forEach(x=>x.setAttribute("aria-pressed",x===b));return}
     if(b.dataset.sfx){p.sfx=b.dataset.sfx==="1";saveProfile();M.querySelectorAll("[data-sfx]").forEach(x=>x.setAttribute("aria-pressed",x===b));tapSfx();return}
     if(b.dataset.sl){lang=b.dataset.sl;M.querySelectorAll("[data-sl]").forEach(x=>x.setAttribute("aria-pressed",x.dataset.sl===lang))}
@@ -1101,7 +1148,7 @@ function drawPlayer(){const P=$("#player"),it=PL.q[PL.i];if(!it){P.hidden=true;d
   P.hidden=false;document.body.classList.add("hasP");
   P.innerHTML=`${it.art?`<img src="${esc(it.art)}" alt="" onerror="this.remove()">`:`<span class="pi">${ICON.media}</span>`}<div class="pt"><b>${esc(it.t)}</b><small>${esc(it.sub||"")}</small></div><button data-pa="prev" aria-label="prev">${ICON.prev}</button><button data-pa="tog" class="pp" aria-label="play">${AUD.paused?ICON.play:ICON.pause}</button><button data-pa="next" aria-label="next">${ICON.next}</button><button data-pa="x" aria-label="close">${ICON.x}</button>`}
 $("#player").addEventListener("click",e=>{const b=e.target.closest("[data-pa]");if(b)pAct(b.dataset.pa)});
-function mMeta(it){try{if(!("mediaSession" in navigator))return;navigator.mediaSession.metadata=new MediaMetadata({title:it.t,artist:it.sub||"Dweekat Fitness",artwork:[{src:it.art||"icons/icon-512.png",sizes:"512x512"}]});
+function mMeta(it){try{if(!("mediaSession" in navigator))return;navigator.mediaSession.metadata=new MediaMetadata({title:it.t,artist:it.sub||"Ghool غول",artwork:[{src:it.art||"icons/icon-512.png",sizes:"512x512"}]});
   navigator.mediaSession.setActionHandler("nexttrack",()=>pAct("next"));navigator.mediaSession.setActionHandler("previoustrack",()=>pAct("prev"));
   navigator.mediaSession.setActionHandler("play",()=>pAct("tog"));navigator.mediaSession.setActionHandler("pause",()=>pAct("tog"))}catch(e){}}
 const MC={get(k){try{const o=JSON.parse(localStorage.getItem(LK+":mc:"+k));if(o&&o.d===dkey())return o.v}catch(e){}return null},set(k,v){try{localStorage.setItem(LK+":mc:"+k,JSON.stringify({d:dkey(),v}))}catch(e){}}};
@@ -1173,7 +1220,7 @@ async function drawMedia(){const box=$("#mBox");if(!box)return;const tok=++MTOK,
 /* ================= 1:1 COACHING (WhatsApp) ================= */
 const COACHES=[{n:["الكوتش هاني مصطفى","Coach Hani Mustafa"],wa:"966542079230"},{n:["الكوتش أحمد مصطفى","Coach Ahmad Mustafa"],wa:"966548818695"}]; /* WhatsApp: international digits only */
 function waLink(num){const p=S.profile||{},tg=p.targets||autoTargets(p);const goal=t({cut:"gCut",recomp:"gRecomp",bulk:"gBulk"}[p.goal||"recomp"]);
-  const msg=tr([`مرحبا كوتش 👋 بدي أشترك بالتدريب الشخصي (عرض أول شهر بـ 1$ وبعدها 18$ بالشهر).\nالاسم: ${p.name||""}\nالهدف: ${goal}\nالوزن: ${p.weight||"-"} كغ\nالطول: ${p.height||"-"} سم\nالمستوى: ${tr(lvl().n)}\nعدد الحصص اللي سجلتها: ${S.sessions.filter(x=>!x.rest).length}\n(من تطبيق Dweekat Fitness)`,`Hi coach 👋 I'd like to sign up for personal coaching (first month $1, then $18/month).\nName: ${p.name||""}\nGoal: ${goal}\nWeight: ${p.weight||"-"} kg\nHeight: ${p.height||"-"} cm\nLevel: ${tr(lvl().n)}\nSessions logged: ${S.sessions.filter(x=>!x.rest).length}\n(from the Dweekat Fitness app)`]);
+  const msg=tr([`مرحبا كوتش 👋 بدي أشترك بالتدريب الشخصي (عرض أول شهر بـ 1$ وبعدها 18$ بالشهر).\nالاسم: ${p.name||""}\nالهدف: ${goal}\nالوزن: ${p.weight||"-"} كغ\nالطول: ${p.height||"-"} سم\nالمستوى: ${tr(lvl().n)}\nعدد الحصص اللي سجلتها: ${S.sessions.filter(x=>!x.rest).length}\n(من تطبيق غول)`,`Hi coach 👋 I'd like to sign up for personal coaching (first month $1, then $18/month).\nName: ${p.name||""}\nGoal: ${goal}\nWeight: ${p.weight||"-"} kg\nHeight: ${p.height||"-"} cm\nLevel: ${tr(lvl().n)}\nSessions logged: ${S.sessions.filter(x=>!x.rest).length}\n(from the Dweekat Fitness app)`]);
   return `https://wa.me/${num}?text=${encodeURIComponent(msg)}`}
 const WA_SVG='<svg viewBox="0 0 24 24" class="wa-i"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>';
 function waCard(big){if(!COACHES.length)return "";return `<div class="card wa-c">${big?`<div class="tiny">${t("waTag")}</div><h2 style="margin:2px 0 6px">${t("waT")}</h2><div class="wa-p"><span class="wa-o">${t("waOffer")}</span><span class="small">${t("waThen")}</span></div><ul class="wa-l">${["wa1","wa2","wa3","wa4"].map(k=>`<li>${t(k)}</li>`).join("")}</ul>`:`<b>${t("waT")}</b><div class="wa-p"><span class="wa-o">${t("waOffer")}</span><span class="small">${t("waThen")}</span></div><p class="small mute" style="margin:4px 0 10px">${t("waS")}</p>`}<button class="btn wa wide" data-team>${WA_SVG}<span>${t("waTeam")}</span></button></div>`}
@@ -1276,7 +1323,7 @@ function renderExpert(e){const v=$("#view"),soon=e.status!=="active",hrs=e.hours
       const slotTxt=hasH?TBK.slot:tr(PERIODS.find(x=>x[0]===TBK.slot)[1]);
       const when=`${tr(WD[d.getDay()])} ${d.getDate()}/${d.getMonth()+1} — ${slotTxt}`,mode=tr(TMODE[TBK.mode]),note=keep().trim();
       const info=e.role==="psych"?"":tr([`\nالهدف: ${t({cut:"gCut",recomp:"gRecomp",bulk:"gBulk"}[p.goal||"recomp"])}\nالوزن: ${p.weight||"-"} كغ · الطول: ${p.height||"-"} سم\nالمستوى: ${tr(lvl().n)}`,`\nGoal: ${t({cut:"gCut",recomp:"gRecomp",bulk:"gBulk"}[p.goal||"recomp"])}\nWeight: ${p.weight||"-"} kg · Height: ${p.height||"-"} cm\nLevel: ${tr(lvl().n)}`]);
-      const msg=tr([`مرحبا ${tr(e.name)} 👋\nبدي أحجز موعد عن طريق تطبيق Dweekat Fitness.\nالموعد: ${when}\nالطريقة: ${mode}\nالاسم: ${p.name||""}`,`Hi ${tr(e.name)} 👋\nI'd like to book a session via the Dweekat Fitness app.\nTime: ${when}\nType: ${mode}\nName: ${p.name||""}`])+info+(note?tr(["\nملاحظة: ","\nNote: "])+note:"");
+      const msg=tr([`مرحبا ${tr(e.name)} 👋\nبدي أحجز موعد عن طريق تطبيق غول.\nالموعد: ${when}\nالطريقة: ${mode}\nالاسم: ${p.name||""}`,`Hi ${tr(e.name)} 👋\nI'd like to book a session via the Ghool app.\nTime: ${when}\nType: ${mode}\nName: ${p.name||""}`])+info+(note?tr(["\nملاحظة: ","\nNote: "])+note:"");
       const a=myBookings();a.push({who:tr(e.name),when,mode,ts:d.getTime()});saveBookings(a);trackEv("booking_request",{expert:e.id,mode:TBK.mode});
       window.open(`https://wa.me/${e.wa}?text=${encodeURIComponent(msg)}`,"_blank","noopener");toast(t("bkSent"))}}}
 
@@ -1329,7 +1376,7 @@ const isF=()=>S.profile&&S.profile.gender==="f";
 let PSEL=null;
 function wpDone(id){try{return JSON.parse(localStorage.getItem(LK+":wp:"+id+":"+dkey()))||[]}catch(e){return []}}
 function wpSave(id,a){try{localStorage.setItem(LK+":wp:"+id+":"+dkey(),JSON.stringify(a))}catch(e){}}
-function progCards(){return `<h3>${t("wpT")}</h3><p class="small mute" style="margin-top:-6px">${t("wpSub")}</p><div class="exlib">${WPROG.map(p=>`<button class="exc" data-prog="${p.id}"><img src="${IMG(p.ex[0][0])}-1.jpg" alt="" loading="lazy"><b>${esc(tr(p.n))}</b><span>${esc(tr(p.freq))}</span></button>`).join("")}</div>`}
+function progCards(){return `<h3>${t("wpT")}</h3><p class="small mute" style="margin-top:-6px">${t("wpSub")}</p><div class="exlib">${WPROG.map(p=>`<button class="exc" data-prog="${p.id}">${thumb(p.ex[0][0])}<b>${esc(tr(p.n))}</b><span>${esc(tr(p.freq))}</span></button>`).join("")}</div>`}
 document.addEventListener("click",e=>{const b=e.target.closest("[data-prog]");if(b){PSEL=b.dataset.prog;TAB="prog";try{history.replaceState(null,"","#prog")}catch(x){}render()}});
 function renderProg(){const v=$("#view"),P=WPROG.find(x=>x.id===PSEL);if(!P){TAB="train";return render()}const done=wpDone(P.id);
   let h=`<button class="btn ghost" data-pback style="margin:4px 0 10px">${t("backB")}</button><h1 style="margin-bottom:4px">${esc(tr(P.n))}</h1><p class="mute" style="margin:0 0 6px">${esc(tr(P.sub))}</p><span class="chip">${esc(tr(P.freq))}</span>`;
@@ -1359,8 +1406,6 @@ let LASTPV="";
 function trackView(){if(!GA_ON||TAB===LASTPV)return;LASTPV=TAB;trackEv("page_view",{page_title:TAB,page_location:location.origin+location.pathname+"#"+TAB})}
 
 /* ================= GENDER ================= */
-/* women's photos: keys listed here have img/exf/<key>-0.jpg and -1.jpg */
-const FIMG=new Set([]);
 function askGender(){modal(`<h2>${t("gT")}</h2><p class="mute small">${t("gS")}</p><div class="grid2" style="margin-top:12px"><button class="opt gsel" data-gs="m"><b>${t("gM")}</b></button><button class="opt gsel" data-gs="f"><b>${t("gF")}</b></button></div>`);
   $("#modalIn").onclick=e=>{const b=e.target.closest("[data-gs]");if(!b)return;S.profile.gender=b.dataset.gs;saveProfile();closeModal();tapSfx();render()}}
 
