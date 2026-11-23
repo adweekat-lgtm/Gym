@@ -306,15 +306,17 @@ hip_thrust:[["اسند أعلى ظهرك على البنش والبار فوق �
 leg_curl:[["نام على بطنك على الجهاز والمسند فوق كاحلك مباشرة","Lie face down on the machine with the pad just above your ankles"],["امسك المقابض وخلّي حوضك لازق بالمسند","Hold the handles and keep your hips pressed into the pad"],["اثني رجليك وقرّب كعبك من مؤخرتك","Curl your legs, bringing your heels toward your glutes"],["نزّل ببطء لحد قبل ما ينفردوا كامل وكرّر","Lower slowly until just short of full extension, then repeat"]]
 };
 /* Women's exercise media. Add a key here once its file is in img/exf/:
-   "mp4"  → img/exf/<key>.mp4  (looping animation, preferred)
+   "mp4"  → img/exf/<key>.mp4 (looping video) + <key>-0.jpg / <key>-1.jpg as poster and fallback
    "gif" / "webp" → img/exf/<key>.gif|webp (animated image)
    "jpg"  → img/exf/<key>-0.jpg + <key>-1.jpg (two frames, like the men's photos)
    Keys not listed fall back to the regular img/ex photos. */
-const FIMG={arm_circles:"jpg",bench:"jpg",bike:"jpg",box:"jpg",burpee:"jpg",bw_squat:"jpg",cable_fly:"jpg",calf:"jpg",crunch:"jpg",cs_row:"jpg",db_curl:"jpg",db_lateral:"jpg",db_shoulder:"jpg",face_pull:"jpg",goblet:"jpg",hammer_curl:"jpg",hip_hinge:"jpg",hip_thrust:"jpg",incline_db:"jpg",incline_machine:"jpg",jrope:"jpg",jsquat:"jpg",kb:"jpg",leg_curl:"jpg",leg_ext:"jpg",leg_press:"jpg",lunges:"jpg",machine_chest:"jpg",mc_rower:"jpg",mclimb:"jpg",one_arm_row:"jpg",overhead_ext:"jpg",pec_deck:"jpg",plank:"jpg",pushdown:"jpg",pushup:"jpg",rdl:"jpg",rlunge:"jpg",ropes:"jpg",rower:"jpg",seated_row:"jpg",slam:"jpg",thruster:"jpg",treadmill:"jpg",w_abduct:"jpg",w_adduct:"jpg",w_benchdip:"jpg",w_breath:"jpg",w_bridge:"jpg",w_cablekick:"jpg",w_catcow:"jpg",w_flutter:"jpg",w_flyes:"jpg",w_inpush:"jpg",w_kickback:"jpg",w_legraise:"jpg",w_plie:"jpg",w_ptilt:"jpg",w_pullover:"jpg",w_russian:"jpg",w_sidebridge:"jpg",w_sidelift:"jpg",w_slbridge:"jpg",w_stepup:"jpg",wallball:"jpg"};
+const FIMG={arm_circles:"jpg",bench:"jpg",bike:"jpg",box:"jpg",burpee:"jpg",bw_squat:"jpg",cable_fly:"jpg",cable_lateral:"jpg",calf:"jpg",crunch:"jpg",cs_row:"jpg",db_curl:"jpg",db_lateral:"jpg",db_shoulder:"jpg",face_pull:"jpg",goblet:"jpg",hammer_curl:"jpg",hip_hinge:"jpg",hip_thrust:"jpg",incline_db:"jpg",incline_machine:"jpg",jrope:"jpg",jsquat:"jpg",kb:"jpg",lat_pulldown:"mp4",leg_curl:"jpg",leg_ext:"jpg",leg_press:"jpg",lunges:"jpg",machine_chest:"jpg",mc_rower:"jpg",mclimb:"jpg",one_arm_row:"jpg",overhead_ext:"jpg",pec_deck:"jpg",plank:"jpg",pushdown:"jpg",pushup:"jpg",rdl:"jpg",rlunge:"jpg",ropes:"jpg",rower:"jpg",seated_row:"jpg",slam:"jpg",thruster:"jpg",treadmill:"jpg",w_abduct:"jpg",w_adduct:"jpg",w_airbike:"mp4",w_benchdip:"jpg",w_breath:"jpg",w_bridge:"jpg",w_cablekick:"jpg",w_catcow:"jpg",w_flutter:"jpg",w_flyes:"jpg",w_inpush:"jpg",w_kickback:"jpg",w_legraise:"jpg",w_plie:"jpg",w_ptilt:"jpg",w_pullover:"jpg",w_russian:"jpg",w_sidebridge:"jpg",w_sidelift:"jpg",w_slbridge:"jpg",w_stepup:"jpg",w_tkick:"mp4",wallball:"jpg"};
 const fx=k=>(typeof FEM==="function"&&FEM()&&FIMG[k])||"";
 const IMG=k=>(fx(k)==="jpg"?"img/exf/":"img/ex/")+k;
+/* a video that can't load (offline, blocked) falls back to its two still frames */
+document.addEventListener("error",e=>{const v=e.target;if(v&&v.tagName==="VIDEO"&&v.dataset.k){const k=v.dataset.k;v.parentNode.classList.remove("anim");v.outerHTML=[0,1].map(i=>`<img src="img/exf/${k}-${i}.jpg" alt="">`).join("")}},true);
 function thumb(k){const f=fx(k);
-  if(f==="mp4")return `<video class="thv" src="img/exf/${k}.mp4#t=0.6" muted playsinline preload="metadata"></video>`;
+  if(f==="mp4")return `<img src="img/exf/${k}-1.jpg" alt="" loading="lazy">`;
   if(f==="gif"||f==="webp")return `<img src="img/exf/${k}.${f}" alt="" loading="lazy">`;
   return `<img src="${IMG(k)}-1.jpg" alt="" loading="lazy">`}
 const LV={
@@ -587,7 +589,7 @@ const SE=$("#session");let restT=null,swT=null;
 function openSession(){SE.hidden=false;document.body.classList.add("sess");document.body.style.overflow="hidden";renderStep()}
 function closeSession(){SE.hidden=true;document.body.classList.remove("sess");SE.innerHTML="";document.body.style.overflow="";stopRest();clearInterval(swT);render()}
 function pic(k,label){const f=fx(k),chip=label?`<span class="chip">${esc(label)}</span>`:"";
-  if(f==="mp4")return `<div class="clip pic anim"><video src="img/exf/${k}.mp4" autoplay loop muted playsinline preload="auto"></video>${chip}</div>`;
+  if(f==="mp4")return `<div class="clip pic anim"><video data-k="${k}" src="img/exf/${k}.mp4" poster="img/exf/${k}-0.jpg" autoplay loop muted playsinline preload="metadata"></video>${chip}</div>`;
   if(f==="gif"||f==="webp")return `<div class="clip pic anim"><img src="img/exf/${k}.${f}" alt="" loading="lazy">${chip}</div>`;
   return `<div class="clip pic"><img src="${IMG(k)}-0.jpg" alt="" loading="lazy"><img src="${IMG(k)}-1.jpg" alt="" loading="lazy">${chip}</div>`}
 function vid(clip){return pic(clip)}
