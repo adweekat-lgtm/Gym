@@ -64,11 +64,11 @@
     return t.join("");
   }
 
-  function sheet(html) {
+  function sheet(html, onClose) {
     const scrim = document.createElement("div");
     scrim.className = "scrim";
     scrim.innerHTML = `<div class="sheet" role="dialog" aria-modal="true"><div class="grab"></div>${html}</div>`;
-    const close = () => { scrim.remove(); document.removeEventListener("keydown", onKey); };
+    const close = () => { scrim.remove(); document.removeEventListener("keydown", onKey); if (onClose) onClose(); };
     const onKey = (e) => { if (e.key === "Escape") close(); };
     scrim.addEventListener("click", (e) => { if (e.target === scrim) close(); });
     document.addEventListener("keydown", onKey);
@@ -76,6 +76,17 @@
     const first = scrim.querySelector("input,button");
     if (first) setTimeout(() => first.focus(), 50);
     return { el: scrim.firstChild, close };
+  }
+
+  // In-page confirmation (browser confirm() is blocked in some app views).
+  function ask(question, detail, okLabel) {
+    return new Promise((resolve) => {
+      let answered = false;
+      const finish = (v) => { if (!answered) { answered = true; resolve(v); } };
+      const sh = sheet(`<h2 style="margin-top:4px">${esc(question)}</h2><p class="sub">${esc(detail)}</p>
+        <div class="btns"><button class="btn bad" type="button" data-a="yes" style="flex:1">${esc(okLabel)}</button><button class="btn sec" type="button" data-a="no" style="flex:1">رجوع</button></div>`, () => finish(false));
+      $$("[data-a]", sh.el).forEach((b) => b.addEventListener("click", () => { finish(b.dataset.a === "yes"); sh.close(); }));
+    });
   }
 
   function setTab(name) {
@@ -411,7 +422,7 @@
       ${held.length ? held.map((b) => bookingCard(b, `<button class="btn small ok" data-act="confirmed">وصل المبلغ · أكّد</button><button class="btn small bad" data-act="cancelled">فك الحجز</button>`)).join("") : `<div class="card empty">لا شي.</div>`}`;
     $$("[data-act]", box).forEach((btn) => btn.addEventListener("click", async () => {
       const card = btn.closest("[data-id]"), id = card.dataset.id, act = btn.dataset.act;
-      if (act !== "confirmed" && !confirm(act === "rejected" ? "ترفض الحجز؟ المكان يرجع فاضي." : "تفك الحجز؟ المكان يرجع فاضي.")) return;
+      if (act !== "confirmed" && !(await ask(act === "rejected" ? "ترفض الحجز؟" : "تفك الحجز؟", "المكان يرجع فاضي ويقدر غيره يحجزه.", act === "rejected" ? "ارفض" : "فك الحجز"))) return;
       btn.disabled = true;
       try {
         await store.setBookingStatus(id, act);
@@ -457,7 +468,7 @@
       <div class="card roster">${team(1)}${team(2)}</div>`;
     const cancel = $("#cancel");
     if (cancel) cancel.addEventListener("click", async () => {
-      if (!confirm("تلغي المباراة؟ تختفي من التطبيق، ولازم ترجع فلوس اللي دفعوا بنفسك.")) return;
+      if (!(await ask("تلغي المباراة؟", "تختفي من التطبيق، ولازم ترجع فلوس اللي دفعوا بنفسك.", "ألغِ المباراة"))) return;
       await store.saveMatch({ id: m.id, status: "cancelled" });
       toast("انلغت المباراة");
       adminView(["match", id]);
@@ -568,7 +579,7 @@
     $("#out", box).addEventListener("click", async () => { await store.logout(); updateBadge(0); adminView([]); });
     const reset = $("#reset", box);
     if (reset) reset.addEventListener("click", async () => {
-      if (!confirm("تمسح كل الحجوزات والمباريات على هالجهاز وترجع البيانات التجريبية؟")) return;
+      if (!(await ask("ترجع البيانات التجريبية؟", "تنمسح كل الحجوزات والمباريات على هالجهاز.", "امسح وارجع"))) return;
       await store.resetDemo(); settings = await store.getSettings(); toast("رجعت البيانات التجريبية");
     });
   }
